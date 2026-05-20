@@ -11,13 +11,15 @@
     const SIMPLEX_DIST = 110;
     let time = 0;
 
-    // Math & research symbols that float across
+    // Math & research symbols that float across - ENHANCED for visibility
     const SYMBOL_POOL = [
         'E[Y|do(X)]', 'ATE', 'CATE', 'H₀', 'H₁', 'β₁',
-        'P(Y|X)', 'τ(x)', '∂/∂x', '∫', '∑', 'Σ',
-        'do(x)', 'DAG', 'E[Y¹-Y⁰]', '∇',
-        'RV_t', 'σ²', 'W₂(p,q)', 'π(a|s)',
-        'X→Y', 'X→M→Y', 'ε', 'θ', 'λ',
+        'P(Y|X)', 'τ(x)', '∂/∂x', '∫ f(x)dx', '∑ xᵢ', 'Σ',
+        'do(X=x)', 'P(Yˣ | X=x\')', 'E[Y¹-Y⁰]', '∇θ J(θ)',
+        'RV_t = ∑ rᵢ²', 'σ²', 'W₂(p,q)', 'π(a|s)',
+        'X → Y', 'X ← U → Y', 'ε ~ N(0,1)', 'θ*', 'λ',
+        'H₁(K)', 'βᵢ(X)', 'Persistent Homology', 'd(x,y)',
+        'do-calculus', 'SCM: Y := f(X, U)', 'Counterfactual'
     ];
 
     function resize() {
@@ -43,16 +45,16 @@
 
     function initSymbols() {
         symbols = [];
-        const count = Math.max(6, Math.floor(w / 200));
+        const count = Math.max(12, Math.floor(w / 100)); // More symbols
         for (let i = 0; i < count; i++) {
             symbols.push({
                 text: SYMBOL_POOL[Math.floor(Math.random() * SYMBOL_POOL.length)],
                 x: Math.random() * w,
                 y: Math.random() * h,
-                vx: (Math.random() - 0.5) * 0.2,
-                vy: -0.15 - Math.random() * 0.2,
-                alpha: 0.06 + Math.random() * 0.08,
-                size: 11 + Math.random() * 6,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: -0.2 - Math.random() * 0.4,
+                alpha: 0.15 + Math.random() * 0.25, // More visible
+                size: 14 + Math.random() * 12, // Larger
             });
         }
     }
@@ -164,16 +166,37 @@
         ctx.textBaseline = 'middle';
         for (const sym of symbols) {
             const flicker = 0.5 + 0.5 * Math.sin(time * 2 + sym.x);
-            ctx.font = `${sym.size}px 'JetBrains Mono', monospace`;
-            ctx.fillStyle = `rgba(79, 140, 255, ${sym.alpha * flicker})`;
+            ctx.font = `bold ${sym.size}px 'JetBrains Mono', monospace`; // Bold for visibility
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = `rgba(59, 130, 246, ${sym.alpha * 0.5})`;
+            ctx.fillStyle = `rgba(255, 255, 255, ${sym.alpha * flicker})`; // White text for maximum contrast
             ctx.fillText(sym.text, sym.x, sym.y);
+            ctx.shadowBlur = 0; // Reset for other drawing
         }
     }
 
     function update() {
+        // Mouse interaction for topology nodes
+        const mouse = window.topologyMouse || { x: -1000, y: -1000 };
+        
         for (const node of nodes) {
+            // Mouse repulsion
+            const dx = node.x - mouse.x;
+            const dy = node.y - mouse.y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 150) {
+                const force = (150 - dist) / 150;
+                node.vx += (dx / dist) * force * 0.5;
+                node.vy += (dy / dist) * force * 0.5;
+            }
+
             node.x += node.vx;
             node.y += node.vy;
+            
+            // Friction
+            node.vx *= 0.99;
+            node.vy *= 0.99;
+
             if (node.x < 0 || node.x > w) node.vx *= -1;
             if (node.y < 0 || node.y > h) node.vy *= -1;
         }
@@ -335,7 +358,7 @@ window.addEventListener('scroll', updateActiveNav);
 // ===== Scroll-triggered fade-in animations =====
 (function () {
     const elements = document.querySelectorAll(
-        '.timeline-item, .edu-card, .pub-item, .award-card, .conf-card, .skill-category, .social-card, .detail-card, .story-chapter'
+        '.timeline-item, .edu-card, .pub-item, .award-card, .conf-card, .skill-category, .social-card, .detail-card, .story-chapter, .counterfactual-container, .tda-insight, .causal-rl-insight'
     );
 
     elements.forEach(el => el.classList.add('fade-in'));
@@ -438,4 +461,457 @@ window.addEventListener('scroll', updateActiveNav);
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') closeLightbox();
     });
+})();
+
+// ===== Interactive Topology Canvas Enhancement =====
+(function() {
+    const canvas = document.getElementById('topology-canvas');
+    if (!canvas) return;
+    
+    let mouse = { x: -1000, y: -1000 };
+    window.addEventListener('mousemove', e => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    // We'll wrap the existing animate loop or add a mouse interaction to it
+    // For now, let's add a global mouse object that the main script can use
+    window.topologyMouse = mouse;
+})();
+
+// ===== Causal RL: Interventional Agent Logic (High Detail) =====
+(function() {
+    const canvas = document.getElementById('cf-canvas');
+    const status = document.getElementById('cf-status');
+    const math = document.getElementById('cf-math');
+    const log = document.getElementById('cf-log');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    let mode = 'obs';
+    let particles = [];
+    let agentPos = { x: 200, y: 300 };
+    let targetPos = { x: 300, y: 200 };
+    let time = 0;
+
+    function resize() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        w = canvas.width = rect.width;
+        h = canvas.height = rect.height;
+        initParticles();
+    }
+
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < 30; i++) {
+            particles.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                speed: 0.2 + Math.random() * 0.5,
+                phase: Math.random() * Math.PI * 2
+            });
+        }
+    }
+
+    function drawGrid() {
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+        ctx.lineWidth = 1;
+        const spacing = 40;
+        for (let x = 0; x < w; x += spacing) {
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, h);
+        }
+        for (let y = 0; y < h; y += spacing) {
+            ctx.moveTo(0, y);
+            ctx.lineTo(w, y);
+        }
+        ctx.stroke();
+    }
+
+    function drawAgent(x, y, isGhost = false) {
+        const alpha = isGhost ? 0.2 : 1;
+        const color = mode === 'obs' ? '#3b82f6' : '#f97316';
+        
+        ctx.save();
+        ctx.translate(x, y);
+        
+        // Agent Body (Stylized Hexagon/Core)
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+            const angle = (i / 6) * Math.PI * 2 + time;
+            const r = 12;
+            const px = Math.cos(angle) * r;
+            const py = Math.sin(angle) * r;
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fillStyle = isGhost ? 'rgba(255,255,255,0.1)' : color;
+        ctx.fill();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.globalAlpha = alpha;
+        ctx.stroke();
+
+        // Inner core pulse
+        const pulse = Math.sin(time * 5) * 3 + 4;
+        ctx.beginPath();
+        ctx.arc(0, 0, pulse, 0, Math.PI * 2);
+        ctx.fillStyle = '#fff';
+        ctx.fill();
+
+        // Orbiting "Reasoning Nodes"
+        for (let i = 0; i < 3; i++) {
+            const angle = time * 2 + (i / 3) * Math.PI * 2;
+            const r = 22;
+            const nx = Math.cos(angle) * r;
+            const ny = Math.sin(angle) * r;
+            ctx.beginPath();
+            ctx.arc(nx, ny, 3, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+            
+            // Connect nodes to core
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(nx, ny);
+            ctx.strokeStyle = `rgba(${mode==='obs'?'59,130,246':'249,115,22'}, 0.2)`;
+            ctx.stroke();
+        }
+
+        ctx.restore();
+    }
+
+    function drawConfounder() {
+        const cx = w / 2;
+        const cy = 80;
+        
+        // Detailed Confounder (Fractal-like)
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.beginPath();
+        ctx.arc(0, 0, 40, 0, Math.PI * 2);
+        const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, 60);
+        grad.addColorStop(0, 'rgba(245, 158, 11, 0.3)');
+        grad.addColorStop(1, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        // Pulsing rings
+        for (let i = 0; i < 3; i++) {
+            const r = ((time * 20 + i * 20) % 60);
+            ctx.beginPath();
+            ctx.arc(0, 0, r, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(245, 158, 11, ${1 - r/60})`;
+            ctx.stroke();
+        }
+        
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = 'bold 14px JetBrains Mono';
+        ctx.textAlign = 'center';
+        ctx.fillText('U (CONFOUNDER)', 0, -50);
+        ctx.restore();
+
+        // Influence Rays (Only in Obs mode)
+        if (mode === 'obs') {
+            ctx.beginPath();
+            ctx.setLineDash([5, 10]);
+            ctx.strokeStyle = 'rgba(245, 158, 11, 0.1)';
+            for (let i = 0; i < 12; i++) {
+                const angle = (i / 12) * Math.PI * 2;
+                ctx.moveTo(cx, cy);
+                ctx.lineTo(cx + Math.cos(angle) * 1000, cy + Math.sin(angle) * 1000);
+            }
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, w, h);
+        time += 0.015;
+        
+        drawGrid();
+        drawConfounder();
+
+        // Particles reacting to agent
+        particles.forEach(p => {
+            p.y += p.speed;
+            if (p.y > h) p.y = 0;
+            
+            const dist = Math.hypot(p.x - agentPos.x, p.y - agentPos.y);
+            if (dist < 100 && mode === 'cf') {
+                // Interventional mode: particles are repelled/attracted causally
+                const angle = Math.atan2(p.y - agentPos.y, p.x - agentPos.x);
+                p.x += Math.cos(angle) * 2;
+                p.y += Math.sin(angle) * 2;
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
+            ctx.fillStyle = mode === 'obs' ? 'rgba(59, 130, 246, 0.3)' : 'rgba(249, 115, 22, 0.5)';
+            ctx.fill();
+        });
+
+        // Agent movement
+        const dx = targetPos.x - agentPos.x;
+        const dy = targetPos.y - agentPos.y;
+        agentPos.x += dx * 0.02;
+        agentPos.y += dy * 0.02;
+
+        // Draw Causal "Shield" or "Intervention" visual
+        if (mode === 'cf') {
+            ctx.beginPath();
+            ctx.arc(agentPos.x, agentPos.y, 50 + Math.sin(time*10)*5, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(249, 115, 22, 0.3)';
+            ctx.setLineDash([2, 2]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Line showing "CUT" from confounder
+            ctx.beginPath();
+            ctx.moveTo(w/2, 80);
+            const interX = (w/2 + agentPos.x) / 2;
+            const interY = (80 + agentPos.y) / 2;
+            ctx.lineTo(agentPos.x, agentPos.y);
+            ctx.strokeStyle = 'rgba(255, 68, 68, 0.4)';
+            ctx.stroke();
+            
+            ctx.save();
+            ctx.translate(interX, interY);
+            ctx.rotate(Math.PI / 4);
+            ctx.fillStyle = '#ff4444';
+            ctx.font = '24px Arial';
+            ctx.fillText('+', 0, 0); // Stylized cut
+            ctx.restore();
+        }
+
+        drawAgent(agentPos.x, agentPos.y);
+
+        if (Math.hypot(dx, dy) < 15) {
+            targetPos = { x: 100 + Math.random() * (w - 200), y: 150 + Math.random() * (h - 200) };
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    resize();
+    animate();
+
+    document.querySelectorAll('.cf-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            mode = btn.getAttribute('data-mode');
+            document.querySelectorAll('.cf-toggle').forEach(b => b.classList.toggle('btn-primary', false));
+            document.querySelectorAll('.cf-toggle').forEach(b => b.classList.toggle('btn-outline', true));
+            btn.classList.add('btn-primary');
+            btn.classList.remove('btn-outline');
+
+            if (mode === 'obs') {
+                status.innerText = "Agent Mode: Passive Observation";
+                status.style.color = 'var(--primary)';
+                math.innerHTML = "\( E[Y|X] \)";
+                log.innerHTML = "> Monitoring observational manifold...<br>> Bias detected in state transitions.<br>> Warning: Confounding from U persists.";
+            } else {
+                status.innerText = "Agent Mode: Causal Action [do(X)]";
+                status.style.color = 'var(--accent-orange)';
+                math.innerHTML = "\( E[Y | do(X)] \)";
+                log.innerHTML = "> Performing policy intervention...<br>> Cutting back-door path: U → X.<br>> Learning true causal rewards...";
+            }
+            // Trigger KaTeX rendering for the new math content
+            if (window.renderMathInElement) {
+                renderMathInElement(math, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError : false
+                });
+            }
+        });
+    });
+
+    window.addEventListener('resize', resize);
+})();
+
+// ===== Research Agent AI Simulation =====
+(function() {
+    const fab = document.getElementById('agent-fab');
+    const windowEl = document.getElementById('agent-window');
+    const closeBtn = document.getElementById('agent-close');
+    const chat = document.getElementById('agent-chat');
+    const input = document.getElementById('agent-input');
+    const sendBtn = document.getElementById('agent-send');
+
+    if (!fab) return;
+
+    fab.addEventListener('click', () => windowEl.classList.toggle('active'));
+    closeBtn.addEventListener('click', () => windowEl.classList.remove('active'));
+
+    const KNOWLEDGE_BASE = {
+        'causal': 'Hugo is an expert in Causal Inference, currently leading research at Dell Technologies. He specializes in Causal Reinforcement Learning and treatment effect estimation.',
+        'topology': 'Hugo proposed the Topological Tail Dependence Theory during his Bachelor thesis, using Persistent Homology to forecast realized volatility. Truly cutting-edge stuff!',
+        'agentic': 'At Dell, Hugo coordinates research on the synergies of Agentic AI, Causal Inference, and Causal RL. He also worked with OpenAI on the GPT-4o System Card.',
+        'netherlands': 'Hugo spent several years in the Netherlands, studying at HAN and working at BASF. He speaks Dutch fluently and loved the Dutch culture!',
+        'brazil': 'Hugo was born in Brazil and returned there after his time in the Netherlands. He is currently based in Ilhabela.',
+        'finance': 'His background is in Quantitative Finance, with many publications in journals like Expert Systems with Applications and Financial Innovation.',
+        'cv': 'You can download Hugo\'s CV from the Hero section. It was last updated in April 2026.',
+        'contact': 'You can reach Hugo via LinkedIn or the contact form at the bottom of this page.'
+    };
+
+    function addMessage(text, side) {
+        const msg = document.createElement('div');
+        msg.className = `msg msg-${side}`;
+        msg.textContent = text;
+        chat.appendChild(msg);
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    function botResponse(query) {
+        addMessage('Thinking...', 'bot');
+        const lastMsg = chat.lastElementChild;
+        
+        setTimeout(() => {
+            let response = "I'm not sure about that, but Hugo is always open to discussing research! You should check his publications section.";
+            const q = query.toLowerCase();
+            
+            for (const key in KNOWLEDGE_BASE) {
+                if (q.includes(key)) {
+                    response = KNOWLEDGE_BASE[key];
+                    break;
+                }
+            }
+            
+            lastMsg.textContent = response;
+        }, 1000);
+    }
+
+    function handleSend() {
+        const text = input.value.trim();
+        if (!text) return;
+        addMessage(text, 'user');
+        input.value = '';
+        botResponse(text);
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    input.addEventListener('keypress', e => {
+        if (e.key === 'Enter') handleSend();
+    });
+})();
+
+// ===== Magnetic Buttons Effect =====
+(function() {
+    const magneticEls = document.querySelectorAll('.btn, .agent-fab, .nav-logo, .hero-image-wrapper');
+    
+    magneticEls.forEach(el => {
+        el.addEventListener('mousemove', e => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = '';
+        });
+    });
+})();
+
+
+// ===== TDA Persistent Homology Visualization =====
+(function() {
+    const canvas = document.getElementById('tda-canvas');
+    const radiusInput = document.getElementById('tda-radius');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+    
+    // Create points in a circle (to show the "hole")
+    const points = [];
+    const count = 35;
+    for (let i = 0; i < count; i++) {
+        const angle = (i / count) * Math.PI * 2;
+        const r = 50 + (Math.random() - 0.5) * 15;
+        points.push({
+            x: w / 2 + Math.cos(angle) * r,
+            y: h / 2 + Math.sin(angle) * r,
+            ox: w / 2 + Math.cos(angle) * r,
+            oy: h / 2 + Math.sin(angle) * r,
+            phase: Math.random() * Math.PI * 2
+        });
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, w, h);
+        const radius = parseInt(radiusInput.value);
+        const time = Date.now() * 0.002;
+
+        // Subtle movement
+        points.forEach(p => {
+            p.x = p.ox + Math.sin(time + p.phase) * 3;
+            p.y = p.oy + Math.cos(time + p.phase) * 3;
+        });
+
+        // Draw complexes
+        ctx.lineWidth = 1;
+        for (let i = 0; i < points.length; i++) {
+            for (let j = i + 1; j < points.length; j++) {
+                const d = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
+                if (d < radius) {
+                    ctx.beginPath();
+                    ctx.moveTo(points[i].x, points[i].y);
+                    ctx.lineTo(points[j].x, points[j].y);
+                    ctx.strokeStyle = `rgba(59, 130, 246, ${(1 - d / radius) * 0.5})`;
+                    ctx.stroke();
+
+                    // Simplicial 2-complex (triangles)
+                    for (let k = j + 1; k < points.length; k++) {
+                        const d2 = Math.hypot(points[j].x - points[k].x, points[j].y - points[k].y);
+                        const d3 = Math.hypot(points[i].x - points[k].x, points[i].y - points[k].y);
+                        if (d2 < radius && d3 < radius) {
+                            ctx.beginPath();
+                            ctx.moveTo(points[i].x, points[i].y);
+                            ctx.lineTo(points[j].x, points[j].y);
+                            ctx.lineTo(points[k].x, points[k].y);
+                            ctx.closePath();
+                            ctx.fillStyle = `rgba(59, 130, 246, ${(1 - (d+d2+d3)/(3*radius)) * 0.1})`;
+                            ctx.fill();
+                        }
+                    }
+                }
+            }
+        }
+
+        // Draw points
+        points.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = '#3b82f6';
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+})();
+
+
+// Initialize CF Explorer default state
+(function() {
+    const status = document.getElementById('cf-status');
+    const math = document.getElementById('cf-math');
+    const log = document.getElementById('cf-log');
+    if (status) {
+        status.innerText = "Agent State: Observational (Reality)";
+        math.innerText = "P(Y | X=1)";
+        log.innerHTML = "> Initializing observational flow...<br>> Detecting confounders...<br>> Measuring correlations...";
+    }
 })();

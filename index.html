@@ -8,6 +8,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- KaTeX for Math Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError : false
+            });
+        });
+    </script>
+
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -146,6 +164,43 @@
                     <div class="detail-card detail-card-highlight">
                         <h3>Open to Relocation</h3>
                         <p>Currently based in Ilhabela, Brazil. Eager to work abroad again and open to relocating internationally.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Causal RL Explanation Card -->
+            <div class="causal-rl-insight detail-card fade-in" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(249, 115, 22, 0.1)); border-color: var(--primary); margin-top: 3rem;">
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <div style="font-size: 2.5rem;">🤖</div>
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Agentic Synergy: Why Causal RL?</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">
+                            Traditional Reinforcement Learning often fails in complex environments because it confuses <strong>correlation with causation</strong>. 
+                            By integrating <strong>Causal Inference</strong>, my research enables agents to perform <em>counterfactual reasoning</em>. 
+                            Instead of just maximizing rewards based on what they see, they ask: <em>"What would have happened if I had taken a different action?"</em> 
+                            This allows for breaking confounding bias ($U$) and achieving true sample efficiency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="counterfactual-container fade-in" style="margin-top: 5rem;">
+                <h3 class="section-subtitle" style="color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Causal RL: The Interventional Agent</h3>
+                <p class="section-subtitle">Unlike passive AI, a <strong>Causal Reinforcement Learning</strong> agent doesn't just observe correlations—it performs $do(X)$ to break confounding bias and learn the true structure of the world.</p>
+                
+                <div class="counterfactual-viz" id="cf-viz-container" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; height: 500px; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
+                    <canvas id="cf-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+                    
+                    <div class="cf-overlay" style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border); backdrop-filter: blur(10px); pointer-events: none; z-index: 20; width: 260px; box-shadow: var(--shadow-lg);">
+                        <p id="cf-status" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary); font-weight: bold;">Agent Mode: Observational</p>
+                        <p id="cf-math" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">\( E[Y|X] \)</p>
+                        <hr style="border: 0; border-top: 1px solid var(--border); margin: 0.75rem 0;">
+                        <p id="cf-log" style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-secondary); line-height: 1.5;">> Initializing environment...<br>> Conflicting signals from U detected.</p>
+                    </div>
+
+                    <div class="cf-actions" style="position: absolute; bottom: 1.5rem; display: flex; gap: 1rem; z-index: 20;">
+                        <button class="btn btn-outline cf-toggle" data-mode="obs">Observational World</button>
+                        <button class="btn btn-primary cf-toggle" data-mode="cf">Counterfactual (What-If?)</button>
                     </div>
                 </div>
             </div>
@@ -474,6 +529,24 @@
                 <button class="pub-filter-btn" data-filter="finance">Quantitative Finance</button>
                 <button class="pub-filter-btn" data-filter="ai">AI &amp; NLP</button>
                 <button class="pub-filter-btn" data-filter="wip">Work in Progress</button>
+            </div>
+
+            <!-- TDA Interactive Insight -->
+            <div class="tda-insight detail-card detail-card-highlight fade-in" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 2rem;">
+                <div style="flex: 1;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Topological Insight: Persistent Homology</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                        My research uses Topology to find "holes" in financial data that traditional statistics miss. 
+                        As the connection radius increases, simplicial complexes form, revealing the underlying shape of market risk.
+                    </p>
+                    <div class="tda-controls">
+                        <input type="range" id="tda-radius" min="10" max="100" value="40" style="width: 100%;">
+                        <label for="tda-radius" style="font-size: 0.7rem; color: var(--text-muted);">Persistence Radius (ε)</label>
+                    </div>
+                </div>
+                <div class="tda-viz" style="width: 250px; height: 180px; background: rgba(0,0,0,0.3); border-radius: var(--radius-md); position: relative; overflow: hidden;">
+                    <canvas id="tda-canvas" width="250" height="180"></canvas>
+                </div>
             </div>
 
             <div class="publications-list">
@@ -814,6 +887,38 @@
         <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
         <img class="lightbox-img" id="lightbox-img" alt="">
         <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <!-- Research Agent FAB -->
+    <div class="agent-fab" id="agent-fab">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+
+    <!-- Agent Window -->
+    <div class="agent-window" id="agent-window">
+        <div class="agent-header">
+            <div class="agent-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0V7a1 1 0 0 0-1-1zm0 8a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
+            </div>
+            <div class="agent-info">
+                <h4>Research Assistant</h4>
+                <p>Hugo's Agentic AI Simulation</p>
+            </div>
+            <button id="agent-close" style="margin-left: auto; background: none; border: none; color: var(--text-muted); cursor: pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="agent-chat" id="agent-chat">
+            <div class="msg msg-bot">
+                Hello! I'm an Agentic AI simulation trained on Hugo's research and experience. How can I help you today?
+            </div>
+        </div>
+        <div class="agent-input-container">
+            <input type="text" class="agent-input" id="agent-input" placeholder="Ask about Causal Inference, TDA...">
+            <button class="agent-send" id="agent-send">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+        </div>
     </div>
 
     <script src="assets/js/main.js"></script>
