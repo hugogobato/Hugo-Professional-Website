@@ -115,6 +115,114 @@ a:hover { color: #7db0ff; }
 
 .nav-logo:hover { color: var(--primary); }
 
+/* ===== Language Selector ===== */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.lang-selector {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.725rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: all var(--transition);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.lang-btn:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-active);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.lang-btn.active {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: var(--primary-glow);
+}
+
+.lang-caret {
+    transition: transform var(--transition);
+    opacity: 0.7;
+}
+
+.lang-btn.active .lang-caret {
+    transform: rotate(180deg);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: rgba(10, 14, 23, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 90px;
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow);
+}
+
+.lang-dropdown.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+    border-color: var(--border-active);
+    box-shadow: var(--shadow-glow);
+}
+
+.lang-opt {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.725rem;
+    font-weight: 500;
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-align: left;
+    transition: all var(--transition);
+    width: 100%;
+}
+
+.lang-opt:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-opt.active {
+    color: var(--primary);
+    background: var(--primary-glow);
+    font-weight: 700;
+}
+
 .nav-menu { display: flex; list-style: none; gap: 0.125rem; }
 
 .nav-link {

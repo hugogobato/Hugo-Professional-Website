@@ -35,21 +35,36 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <span class="logo-node"></span>HGS
-            </a>
+            <div class="nav-left">
+                <a href="#hero" class="nav-logo">
+                    <span class="logo-node"></span>HGS
+                </a>
+                <div class="lang-selector">
+                    <button class="lang-btn" id="lang-btn" aria-label="Select language">
+                        <span class="lang-current">EN</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lang-caret"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button data-lang="en" class="lang-opt active">EN</button>
+                        <button data-lang="pt" class="lang-opt">PT</button>
+                        <button data-lang="fr" class="lang-opt">FR</button>
+                        <button data-lang="nl" class="lang-opt">NL</button>
+                        <button data-lang="es" class="lang-opt">ES</button>
+                    </div>
+                </div>
+            </div>
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#story" class="nav-link">My Story</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#publications" class="nav-link">Research</a></li>
-                <li><a href="#awards" class="nav-link">Awards</a></li>
-                <li><a href="#conferences" class="nav-link">Conferences</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="#story" class="nav-link" data-i18n="nav_story">My Story</a></li>
+                <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#education" class="nav-link" data-i18n="nav_education">Education</a></li>
+                <li><a href="#publications" class="nav-link" data-i18n="nav_research">Research</a></li>
+                <li><a href="#awards" class="nav-link" data-i18n="nav_awards">Awards</a></li>
+                <li><a href="#conferences" class="nav-link" data-i18n="nav_conferences">Conferences</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -58,27 +73,27 @@
     <section class="hero" id="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <p class="hero-greeting">Hello, I'm</p>
+                <p class="hero-greeting" data-i18n="hero_greeting">Hello, I'm</p>
                 <h1 class="hero-name">Hugo Gobato<br>Souto</h1>
                 <p class="hero-title" id="typing-target"></p>
-                <p class="hero-subtitle">From self-taught researcher to leading causal AI at scale &mdash; driven by curiosity, shaped by two cultures.</p>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">From self-taught researcher to leading causal AI at scale &mdash; driven by curiosity, shaped by two cultures.</p>
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number" data-target="5445">0</span>
-                        <span class="stat-label">Citations</span>
+                        <span class="stat-label" data-i18n="hero_citations_label">Citations</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number" data-target="20">0</span>
-                        <span class="stat-label">Publications</span>
+                        <span class="stat-label" data-i18n="hero_publications_label">Publications</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number" data-target="5">0</span>
-                        <span class="stat-label">Languages</span>
+                        <span class="stat-label" data-i18n="hero_languages_label">Languages</span>
                     </div>
                 </div>
                 <div class="hero-actions">
-                    <a href="#story" class="btn btn-primary">Read My Story</a>
-                    <a href="assets/Hugo_Gobato_Souto_CV.pdf" class="btn btn-outline" target="_blank">Download CV <span class="btn-note">(Apr 2026)</span></a>
+                    <a href="#story" class="btn btn-primary" data-i18n="hero_read_story">Read My Story</a>
+                    <a href="assets/Hugo_Gobato_Souto_CV.pdf" class="btn btn-outline" target="_blank" data-i18n="hero_download_cv">Download CV <span class="btn-note">(Apr 2026)</span></a>
                 </div>
                 <div class="hero-social">
                     <a href="https://www.linkedin.com/in/hugo-gobato-souto-669b17161/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
@@ -117,22 +132,22 @@
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> About Me</h2>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="about_title">About Me</span></h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>
+                    <p data-i18n="about_p1">
                         I am a research scientist working at the intersection of <strong>Causal Inference</strong>,
                         <strong>Agentic AI</strong>, and <strong>Quantitative Finance</strong>. Currently serving as
                         Principal Causal AI Research Scientist at <strong>Dell Technologies</strong>, I coordinate research
                         on the synergies of Agentic AI, Causal Inference, and Causal Reinforcement Learning.
                     </p>
-                    <p>
+                    <p data-i18n="about_p2">
                         My academic work has been published in journals such as <em>Expert Systems with Applications</em>,
                         <em>Financial Innovation</em>, <em>Computational Economics</em>, and <em>The Journal of Finance and Data Science</em>.
                         I have also contributed to the <strong>GPT-4o System Card</strong> as part of the
                         <strong>OpenAI Red Teaming Network</strong>.
                     </p>
-                    <p>
+                    <p data-i18n="about_p3">
                         Born in Brazil, shaped by the Netherlands &mdash; I spent formative years studying and working in
                         the Dutch academic and professional world, an experience that deeply influenced how I think and work.
                         I speak five languages and am always open to new international collaborations and opportunities.
@@ -140,7 +155,7 @@
                 </div>
                 <div class="about-details">
                     <div class="detail-card">
-                        <h3>Research Interests</h3>
+                        <h3 data-i18n="about_interests_title">Research Interests</h3>
                         <div class="tags">
                             <span class="tag">Causal Inference</span>
                             <span class="tag">Agentic AI</span>
@@ -152,18 +167,18 @@
                         </div>
                     </div>
                     <div class="detail-card">
-                        <h3>Languages</h3>
+                        <h3 data-i18n="about_languages_title">Languages</h3>
                         <div class="languages-grid">
-                            <div class="language"><span class="lang-name">Portuguese</span><span class="lang-level">Native (C2)</span></div>
-                            <div class="language"><span class="lang-name">English</span><span class="lang-level">C2</span></div>
-                            <div class="language"><span class="lang-name">French</span><span class="lang-level">C2</span></div>
-                            <div class="language"><span class="lang-name">Dutch</span><span class="lang-level">C2</span></div>
-                            <div class="language"><span class="lang-name">Spanish</span><span class="lang-level">B2</span></div>
+                            <div class="language"><span class="lang-name" data-i18n="lang_pt">Portuguese</span><span class="lang-level" data-i18n="level_native">Native (C2)</span></div>
+                            <div class="language"><span class="lang-name" data-i18n="lang_en">English</span><span class="lang-level">C2</span></div>
+                            <div class="language"><span class="lang-name" data-i18n="lang_fr">French</span><span class="lang-level">C2</span></div>
+                            <div class="language"><span class="lang-name" data-i18n="lang_nl">Dutch</span><span class="lang-level">C2</span></div>
+                            <div class="language"><span class="lang-name" data-i18n="lang_es">Spanish</span><span class="lang-level">B2</span></div>
                         </div>
                     </div>
                     <div class="detail-card detail-card-highlight">
-                        <h3>Open to Relocation</h3>
-                        <p>Currently based in Ilhabela, Brazil. Eager to work abroad again and open to relocating internationally.</p>
+                        <h3 data-i18n="about_relocation_title">Open to Relocation</h3>
+                        <p data-i18n="about_relocation_text">Currently based in Ilhabela, Brazil. Eager to work abroad again and open to relocating internationally.</p>
                     </div>
                 </div>
             </div>
@@ -173,8 +188,8 @@
                 <div style="display: flex; gap: 2rem; align-items: center;">
                     <div style="font-size: 2.5rem;">🤖</div>
                     <div>
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Agentic Synergy: Why Causal RL?</h4>
-                        <p style="font-size: 0.95rem; line-height: 1.6;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;" data-i18n="causal_rl_insight_title">Agentic Synergy: Why Causal RL?</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;" data-i18n="causal_rl_insight_text">
                             Traditional Reinforcement Learning often fails in complex environments because it confuses <strong>correlation with causation</strong>. 
                             By integrating <strong>Causal Inference</strong>, my research enables agents to perform <em>counterfactual reasoning</em>. 
                             Instead of just maximizing rewards based on what they see, they ask: <em>"What would have happened if I had taken a different action?"</em> 
@@ -185,22 +200,22 @@
             </div>
 
             <div class="counterfactual-container fade-in" style="margin-top: 5rem;">
-                <h3 class="section-subtitle" style="color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Causal RL: The Interventional Agent</h3>
-                <p class="section-subtitle">Unlike passive AI, a <strong>Causal Reinforcement Learning</strong> agent doesn't just observe correlations—it performs $do(X)$ to break confounding bias and learn the true structure of the world.</p>
+                <h3 class="section-subtitle" style="color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem;" data-i18n="causal_rl_viz_title">Causal RL: The Interventional Agent</h3>
+                <p class="section-subtitle" data-i18n="causal_rl_viz_subtitle">Unlike passive AI, a <strong>Causal Reinforcement Learning</strong> agent doesn't just observe correlations—it performs $do(X)$ to break confounding bias and learn the true structure of the world.</p>
                 
                 <div class="counterfactual-viz" id="cf-viz-container" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; height: 500px; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
                     <canvas id="cf-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
                     
                     <div class="cf-overlay" style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border); backdrop-filter: blur(10px); pointer-events: none; z-index: 20; width: 260px; box-shadow: var(--shadow-lg);">
-                        <p id="cf-status" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary); font-weight: bold;">Agent Mode: Observational</p>
+                        <p id="cf-status" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary); font-weight: bold;" data-i18n="cf_status_obs_default">Agent Mode: Observational</p>
                         <p id="cf-math" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">\( E[Y|X] \)</p>
                         <hr style="border: 0; border-top: 1px solid var(--border); margin: 0.75rem 0;">
-                        <p id="cf-log" style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-secondary); line-height: 1.5;">> Initializing environment...<br>> Conflicting signals from U detected.</p>
+                        <p id="cf-log" style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-secondary); line-height: 1.5;" data-i18n="cf_log_obs_default">> Initializing environment...<br>> Conflicting signals from U detected.</p>
                     </div>
 
                     <div class="cf-actions" style="position: absolute; bottom: 1.5rem; display: flex; gap: 1rem; z-index: 20;">
-                        <button class="btn btn-outline cf-toggle" data-mode="obs">Observational World</button>
-                        <button class="btn btn-primary cf-toggle" data-mode="cf">Counterfactual (What-If?)</button>
+                        <button class="btn btn-outline cf-toggle" data-mode="obs" data-i18n="causal_rl_obs_world">Observational World</button>
+                        <button class="btn btn-primary cf-toggle" data-mode="cf" data-i18n="causal_rl_cf_world">Counterfactual (What-If?)</button>
                     </div>
                 </div>
             </div>
@@ -210,17 +225,17 @@
     <!-- My Story Section -->
     <section class="section section-alt" id="story">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> My Story</h2>
-            <p class="section-subtitle">A path built on curiosity, grit, and challenging the status quo.</p>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="story_title">My Story</span></h2>
+            <p class="section-subtitle" data-i18n="story_subtitle">A path built on curiosity, grit, and challenging the status quo.</p>
 
             <div class="story-timeline">
                 <div class="story-chapter" data-year="2019">
                     <div class="story-chapter-header">
                         <span class="story-year">2019</span>
-                        <h3>The Leap</h3>
+                        <h3 data-i18n="story_2019_title">The Leap</h3>
                     </div>
                     <div class="story-chapter-body">
-                        <p>
+                        <p data-i18n="story_2019_text">
                             At 17, after a year of high school in the Netherlands because of my mom's Post Doc, I fell in love with the country
                             and its culture. When my family's visa expired, I returned to Brazil &mdash; but I knew I had to
                             find a way back. I applied for scholarships and was awarded both the <strong>Holland Scholarship</strong>
@@ -230,11 +245,11 @@
                         <div class="story-gallery">
                             <div class="story-img">
                                 <img src="assets/images/netherlands-arrival.jpg" alt="Rivers International School Arnhem 2018/2019 class photo" loading="lazy">
-                                <span class="story-img-caption">Rivers International School Arnhem, 2018/2019</span>
+                                <span class="story-img-caption" data-i18n="story_2019_caption1">Rivers International School Arnhem, 2018/2019</span>
                             </div>
                             <div class="story-img">
                                 <img src="assets/images/arnhem-city.jpg" alt="Sunset over the Rhine in Arnhem" loading="lazy">
-                                <span class="story-img-caption">Arnhem &mdash; the city that became home</span>
+                                <span class="story-img-caption" data-i18n="story_2019_caption2">Arnhem &mdash; the city that became home</span>
                             </div>
                         </div>
                     </div>
@@ -243,17 +258,17 @@
                 <div class="story-chapter" data-year="2020">
                     <div class="story-chapter-header">
                         <span class="story-year">2020&ndash;22</span>
-                        <h3>Teaching to Survive, Learning to Thrive</h3>
+                        <h3 data-i18n="story_2020_title">Teaching to Survive, Learning to Thrive</h3>
                     </div>
                     <div class="story-chapter-body">
-                        <p>
+                        <p data-i18n="story_2020_text1">
                             With only &euro;500/month from my parents and living costs of &euro;1,200, I needed a job.
                             After 35+ rejections (most due to work permit complications), I landed a position as a
                             Portuguese teacher at <strong>Volksuniversiteit Zwolle</strong> &mdash; which grew into teaching
                             French, English, and Dutch as well, plus private lessons. I taught myself Dutch and French
                             independently to professional fluency.
                         </p>
-                        <p>
+                        <p data-i18n="story_2020_text2">
                             During academic terms, I worked approximately <strong>40 hours per week</strong> on top of my
                             full-time studies. During vacations, this climbed to <strong>80 hours</strong>, with up to
                             65 one-hour lessons per week. Through it all, I maintained an average grade of
@@ -262,7 +277,7 @@
                         <div class="story-gallery">
                             <div class="story-img">
                                 <img src="assets/images/teaching-lessons.jpg" alt="Portuguese course listing at Volksuniversiteit Zwolle taught by Hugo Gobato Souto" loading="lazy">
-                                <span class="story-img-caption">Portuguese course at Volksuniversiteit Zwolle</span>
+                                <span class="story-img-caption" data-i18n="story_2020_caption">Portuguese course at Volksuniversiteit Zwolle</span>
                             </div>
                         </div>
                     </div>
@@ -271,21 +286,21 @@
                 <div class="story-chapter" data-year="2022">
                     <div class="story-chapter-header">
                         <span class="story-year">2022&ndash;23</span>
-                        <h3>The Research Breakthrough</h3>
+                        <h3 data-i18n="story_2022_title">The Research Breakthrough</h3>
                     </div>
                     <div class="story-chapter-body">
-                        <p>
+                        <p data-i18n="story_2022_text1">
                             Even though I was at an applied university (HBO), I felt a deep drive to do research.
                             With no formal training in advanced mathematics, I taught myself through online courses
                             from Columbia, UC, and HKUST. Then I started publishing &mdash; entirely on my own initiative.
                         </p>
-                        <p>
+                        <p data-i18n="story_2022_text2">
                             During my Bachelor's alone, I published <strong>7 research papers</strong>, including one proposing
                             a <strong>novel financial theory using Topological Data Analysis</strong> &mdash; the
                             <em>Topological Tail Dependence Theory</em>, which connects persistent homology to stock market behavior.
                             This caught the attention of Professor Amir Moradi, who became my research mentor and collaborator.
                         </p>
-                        <p>
+                        <p data-i18n="story_2022_text3">
                             Meanwhile, at <strong>BASF Nederland</strong>, I managed financial risk for the
                             <strong>Hollandse Kust Zuid</strong> project &mdash; the world's largest offshore wind farm &mdash;
                             using advanced statistical models.
@@ -293,11 +308,11 @@
                         <div class="story-gallery">
                             <div class="story-img">
                                 <img src="assets/images/florence-presenting.jpg" alt="Presenting at the 16th International Risk Management Conference in Florence" loading="lazy">
-                                <span class="story-img-caption">Presenting at the Risk Management Conference, Florence</span>
+                                <span class="story-img-caption" data-i18n="story_2022_caption1">Presenting at the Risk Management Conference, Florence</span>
                             </div>
                             <div class="story-img">
                                 <img src="assets/images/basf-team.jpg" alt="With the BASF Nederland team" loading="lazy">
-                                <span class="story-img-caption">With the BASF Nederland team</span>
+                                <span class="story-img-caption" data-i18n="story_2022_caption2">With the BASF Nederland team</span>
                             </div>
                         </div>
                     </div>
@@ -306,10 +321,10 @@
                 <div class="story-chapter" data-year="2023">
                     <div class="story-chapter-header">
                         <span class="story-year">2023</span>
-                        <h3>Recognition</h3>
+                        <h3 data-i18n="story_2023_title">Recognition</h3>
                     </div>
                     <div class="story-chapter-body">
-                        <p>
+                        <p data-i18n="story_2023_text">
                             The hard work paid off. I was named <strong>HAN Student of the Year 2023</strong> and won
                             the <strong>Best Bachelor Thesis Award</strong>. I was also invited to join the
                             <strong>OpenAI Red Teaming Network</strong>, contributing to the safety evaluation of models
@@ -318,11 +333,11 @@
                         <div class="story-gallery">
                             <div class="story-img">
                                 <img src="assets/images/han-prize-ceremony.jpg" alt="Receiving the HAN Prijs Student of the Year 2023" loading="lazy">
-                                <span class="story-img-caption">HAN Student of the Year 2023</span>
+                                <span class="story-img-caption" data-i18n="story_2023_caption1">HAN Student of the Year 2023</span>
                             </div>
                             <div class="story-img">
                                 <img src="assets/images/glasgow-poster.jpg" alt="Poster presentation at ESOBE 2023, Glasgow" loading="lazy">
-                                <span class="story-img-caption">Poster at ESOBE 2023, Glasgow</span>
+                                <span class="story-img-caption" data-i18n="story_2023_caption2">Poster at ESOBE 2023, Glasgow</span>
                             </div>
                         </div>
                     </div>
@@ -331,15 +346,15 @@
                 <div class="story-chapter" data-year="2024">
                     <div class="story-chapter-header">
                         <span class="story-year">2024&ndash;25</span>
-                        <h3>New Chapter: Causal Inference</h3>
+                        <h3 data-i18n="story_2024_title">New Chapter: Causal Inference</h3>
                     </div>
                     <div class="story-chapter-body">
-                        <p>
+                        <p data-i18n="story_2024_text1">
                             I decided to return to Brazil to be closer to family, and pivoted my research to
                             <strong>Causal Inference</strong>. I enrolled in a double-degree Master's in Statistics
                             at USP and UFSCar, earning both the <strong>FAPESP</strong> and <strong>CAPES</strong> scholarships.
                         </p>
-                        <p>
+                        <p data-i18n="story_2024_text2">
                             I quickly became an expert in the field, writing <strong>three research papers</strong>
                             during my Master's and finishing the program <strong>ahead of schedule</strong> (September 2025
                             instead of March 2026). In industry, I led causal experimentation at
@@ -348,11 +363,11 @@
                         <div class="story-gallery">
                             <div class="story-img">
                                 <img src="assets/images/usp-campus.jpg" alt="A toucan at USP campus, Sao Paulo" loading="lazy">
-                                <span class="story-img-caption">Wildlife at USP &mdash; a toucan greeting at campus</span>
+                                <span class="story-img-caption" data-i18n="story_2024_caption1">Wildlife at USP &mdash; a toucan greeting at campus</span>
                             </div>
                             <div class="story-img">
                                 <img src="assets/images/ghent-poster.jpg" alt="Presenting causal inference research at EUROCIM 2025" loading="lazy">
-                                <span class="story-img-caption">Presenting causal inference research, EUROCIM 2025</span>
+                                <span class="story-img-caption" data-i18n="story_2024_caption2">Presenting causal inference research, EUROCIM 2025</span>
                             </div>
                         </div>
                     </div>
@@ -361,10 +376,10 @@
                 <div class="story-chapter" data-year="2026">
                     <div class="story-chapter-header">
                         <span class="story-year">2026</span>
-                        <h3>Today &amp; Beyond</h3>
+                        <h3 data-i18n="story_2026_title">Today &amp; Beyond</h3>
                     </div>
                     <div class="story-chapter-body">
-                        <p>
+                        <p data-i18n="story_2026_text">
                             Now as <strong>Principal Causal AI Research Scientist at Dell Technologies</strong>,
                             I'm exploring the frontier where Agentic AI meets Causal Inference and Causal Reinforcement Learning.
                             With 5,445+ citations at age 24, I continue to push boundaries &mdash; always looking
@@ -373,14 +388,14 @@
                         <div class="story-gallery">
                             <div class="story-img">
                                 <img src="assets/images/research-workspace.jpg" alt="Hugo's research workspace" loading="lazy">
-                                <span class="story-img-caption">Where the research happens</span>
+                                <span class="story-img-caption" data-i18n="story_2026_caption1">Where the research happens</span>
                             </div>
                             <div class="story-img">
                                 <img src="assets/images/ilhabela.jpg" alt="Ilhabela, Brazil — Hugo's current home" loading="lazy">
-                                <span class="story-img-caption">Ilhabela, Brazil &mdash; home base</span>
+                                <span class="story-img-caption" data-i18n="story_2026_caption2">Ilhabela, Brazil &mdash; home base</span>
                             </div>
                         </div>
-                        <p class="story-cta">
+                        <p class="story-cta" data-i18n="story_2026_cta">
                             I'm open to international opportunities and always eager to collaborate on research that
                             challenges the status quo.
                         </p>
@@ -393,7 +408,7 @@
     <!-- Experience Section -->
     <section class="section" id="experience">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> Professional Experience</h2>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="exp_title">Professional Experience</span></h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-marker current"></div>
@@ -401,9 +416,9 @@
                         <div class="timeline-header">
                             <h3>Principal Causal AI Research Scientist</h3>
                             <span class="timeline-company">Dell Technologies</span>
-                            <span class="timeline-date">Feb 2026 &mdash; Present</span>
+                            <span class="timeline-date" data-i18n="exp_dell_dates">Feb 2026 &mdash; Present</span>
                         </div>
-                        <p>Coordinating research in the synergies of Agentic AI, Causal Inference, and Causal Reinforcement Learning.</p>
+                        <p data-i18n="exp_dell_desc">Coordinating research in the synergies of Agentic AI, Causal Inference, and Causal Reinforcement Learning.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -412,9 +427,9 @@
                         <div class="timeline-header">
                             <h3>Team-Leading Causal Data Scientist</h3>
                             <span class="timeline-company">Luizalabs (Magazine Luiza)</span>
-                            <span class="timeline-date">Feb 2025 &mdash; Feb 2026</span>
+                            <span class="timeline-date" data-i18n="exp_luiza_dates">Feb 2025 &mdash; Feb 2026</span>
                         </div>
-                        <p>Led coordination of e-commerce experiments and extracted business value through causal inference methodologies.</p>
+                        <p data-i18n="exp_luiza_desc">Led coordination of e-commerce experiments and extracted business value through causal inference methodologies.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -423,42 +438,42 @@
                         <div class="timeline-header">
                             <h3>Researcher &mdash; Red Teaming Network</h3>
                             <span class="timeline-company">OpenAI</span>
-                            <span class="timeline-date">Nov 2023 &mdash; Jul 2025</span>
+                            <span class="timeline-date" data-i18n="exp_openai_dates">Nov 2023 &mdash; Jul 2025</span>
                         </div>
-                        <p>Contributed to improving the safety and effectiveness of OpenAI's models, including work on the GPT-4o System Card.</p>
+                        <p data-i18n="exp_openai_desc">Contributed to improving the safety and effectiveness of OpenAI's models, including work on the GPT-4o System Card.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Research &amp; Teaching Assistant</h3>
+                            <h3 data-i18n="exp_han_role">Research &amp; Teaching Assistant</h3>
                             <span class="timeline-company">HAN University of Applied Sciences</span>
-                            <span class="timeline-date">Jul 2023 &mdash; Jan 2024</span>
+                            <span class="timeline-date" data-i18n="exp_han_dates">Jul 2023 &mdash; Jan 2024</span>
                         </div>
-                        <p>Research on novel neural networks and sustainability in businesses and finance within the International Business faculty.</p>
+                        <p data-i18n="exp_han_desc">Research on novel neural networks and sustainability in businesses and finance within the International Business faculty.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Project Financial Analyst</h3>
+                            <h3 data-i18n="exp_basf_role">Project Financial Analyst</h3>
                             <span class="timeline-company">BASF Nederland</span>
-                            <span class="timeline-date">Aug 2022 &mdash; Jul 2023</span>
+                            <span class="timeline-date" data-i18n="exp_basf_dates">Aug 2022 &mdash; Jul 2023</span>
                         </div>
-                        <p>Managed and mitigated project risks of Hollandse Kust Zuid (world's largest offshore wind park) using state-of-the-art statistical and stochastic models.</p>
+                        <p data-i18n="exp_basf_desc">Managed and mitigated project risks of Hollandse Kust Zuid (world's largest offshore wind park) using state-of-the-art statistical and stochastic models.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Language Teacher</h3>
+                            <h3 data-i18n="exp_teacher_role">Language Teacher</h3>
                             <span class="timeline-company">Volksuniversiteit Zwolle + Private Lessons</span>
-                            <span class="timeline-date">Aug 2020 &mdash; Aug 2022</span>
+                            <span class="timeline-date" data-i18n="exp_teacher_dates">Aug 2020 &mdash; Aug 2022</span>
                         </div>
-                        <p>Taught French, English, Dutch, and Portuguese &mdash; 30 to 65 lessons per week while pursuing a full-time Bachelor's degree.</p>
+                        <p data-i18n="exp_teacher_desc">Taught French, English, Dutch, and Portuguese &mdash; 30 to 65 lessons per week while pursuing a full-time Bachelor's degree.</p>
                     </div>
                 </div>
             </div>
@@ -468,45 +483,45 @@
     <!-- Education Section -->
     <section class="section section-alt" id="education">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> Education</h2>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="edu_title">Education</span></h2>
             <div class="education-grid">
                 <div class="edu-card edu-card-featured">
                     <div class="edu-flag flag-br"></div>
-                    <h3>Double Degree Master's in Statistics</h3>
-                    <p class="edu-institution">University of Sao Paulo (USP) &amp; Federal University of Sao Carlos (UFSCar)</p>
-                    <p class="edu-date">Mar 2024 &mdash; Sep 2025</p>
-                    <p class="edu-note">Completed ahead of schedule (originally Mar 2026)</p>
+                    <h3 data-i18n="edu_usp_degree">Double Degree Master's in Statistics</h3>
+                    <p class="edu-institution" data-i18n="edu_usp_inst">University of Sao Paulo (USP) &amp; Federal University of Sao Carlos (UFSCar)</p>
+                    <p class="edu-date" data-i18n="edu_usp_dates">Mar 2024 &mdash; Sep 2025</p>
+                    <p class="edu-note" data-i18n="edu_usp_note">Completed ahead of schedule (originally Mar 2026)</p>
                 </div>
                 <div class="edu-card edu-card-featured">
                     <div class="edu-flag flag-nl"></div>
-                    <h3>Bachelor's in International Business</h3>
-                    <p class="edu-institution">HAN University of Applied Sciences</p>
-                    <p class="edu-date">Feb 2020 &mdash; Feb 2024</p>
-                    <p class="edu-note">Cum Laude &mdash; 8.85/10 &mdash; Specialized in Finance</p>
+                    <h3 data-i18n="edu_han_degree">Bachelor's in International Business</h3>
+                    <p class="edu-institution" data-i18n="edu_han_inst">HAN University of Applied Sciences</p>
+                    <p class="edu-date" data-i18n="edu_han_dates">Feb 2020 &mdash; Feb 2024</p>
+                    <p class="edu-note" data-i18n="edu_han_note">Cum Laude &mdash; 8.85/10 &mdash; Specialized in Finance</p>
                 </div>
                 <div class="edu-card">
                     <div class="edu-flag flag-be"></div>
-                    <h3>ESG Portfolio Management &amp; Mathematical Finance</h3>
-                    <p class="edu-institution">ICHEC Brussels School of Management</p>
-                    <p class="edu-date">Feb 2022 &mdash; Jul 2022</p>
+                    <h3 data-i18n="edu_card3_title">ESG Portfolio Management &amp; Mathematical Finance</h3>
+                    <p class="edu-institution" data-i18n="edu_card3_inst">ICHEC Brussels School of Management</p>
+                    <p class="edu-date" data-i18n="edu_card3_dates">Feb 2022 &mdash; Jul 2022</p>
                 </div>
                 <div class="edu-card">
                     <div class="edu-flag flag-us"></div>
-                    <h3>Financial Engineering &amp; Risk Management</h3>
-                    <p class="edu-institution">Columbia University (Online)</p>
-                    <p class="edu-date">Nov 2022 &mdash; Jan 2023</p>
+                    <h3 data-i18n="edu_card4_title">Financial Engineering &amp; Risk Management</h3>
+                    <p class="edu-institution" data-i18n="edu_card4_inst">Columbia University (Online)</p>
+                    <p class="edu-date" data-i18n="edu_card4_dates">Nov 2022 &mdash; Jan 2023</p>
                 </div>
                 <div class="edu-card">
                     <div class="edu-flag flag-us"></div>
-                    <h3>Advanced Bayesian Statistics</h3>
-                    <p class="edu-institution">University of California (Online)</p>
-                    <p class="edu-date">Nov 2022 &mdash; Jan 2023</p>
+                    <h3 data-i18n="edu_card5_title">Advanced Bayesian Statistics</h3>
+                    <p class="edu-institution" data-i18n="edu_card5_inst">University of California (Online)</p>
+                    <p class="edu-date" data-i18n="edu_card5_dates">Nov 2022 &mdash; Jan 2023</p>
                 </div>
                 <div class="edu-card">
                     <div class="edu-flag flag-hk"></div>
-                    <h3>Mathematics for Engineers</h3>
-                    <p class="edu-institution">HKUST (Online)</p>
-                    <p class="edu-date">Oct 2022 &mdash; Nov 2022</p>
+                    <h3 data-i18n="edu_card6_title">Mathematics for Engineers</h3>
+                    <p class="edu-institution" data-i18n="edu_card6_inst">HKUST (Online)</p>
+                    <p class="edu-date" data-i18n="edu_card6_dates">Oct 2022 &mdash; Nov 2022</p>
                 </div>
             </div>
         </div>
@@ -515,7 +530,7 @@
     <!-- Publications Section -->
     <section class="section" id="publications">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> Selected Publications</h2>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="pub_title">Selected Publications</span></h2>
             <p class="section-subtitle">
                 <a href="https://scholar.google.com/citations?user=a8xbGQwAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
                 &middot;
@@ -524,24 +539,24 @@
             </p>
 
             <div class="pub-filter">
-                <button class="pub-filter-btn active" data-filter="all">All</button>
-                <button class="pub-filter-btn" data-filter="causal">Causal Inference</button>
-                <button class="pub-filter-btn" data-filter="finance">Quantitative Finance</button>
-                <button class="pub-filter-btn" data-filter="ai">AI &amp; NLP</button>
-                <button class="pub-filter-btn" data-filter="wip">Work in Progress</button>
+                <button class="pub-filter-btn active" data-filter="all" data-i18n="pub_all">All</button>
+                <button class="pub-filter-btn" data-filter="causal" data-i18n="pub_causal">Causal Inference</button>
+                <button class="pub-filter-btn" data-filter="finance" data-i18n="pub_finance">Quantitative Finance</button>
+                <button class="pub-filter-btn" data-filter="ai" data-i18n="pub_ai">AI &amp; NLP</button>
+                <button class="pub-filter-btn" data-filter="wip" data-i18n="pub_wip">Work in Progress</button>
             </div>
 
             <!-- TDA Interactive Insight -->
             <div class="tda-insight detail-card detail-card-highlight fade-in" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 2rem;">
                 <div style="flex: 1;">
-                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Topological Insight: Persistent Homology</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;" data-i18n="tda_title">Topological Insight: Persistent Homology</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;" data-i18n="tda_text">
                         My research uses Topology to find "holes" in financial data that traditional statistics miss. 
                         As the connection radius increases, simplicial complexes form, revealing the underlying shape of market risk.
                     </p>
                     <div class="tda-controls">
                         <input type="range" id="tda-radius" min="10" max="100" value="40" style="width: 100%;">
-                        <label for="tda-radius" style="font-size: 0.7rem; color: var(--text-muted);">Persistence Radius (ε)</label>
+                        <label for="tda-radius" style="font-size: 0.7rem; color: var(--text-muted);" data-i18n="tda_radius_label">Persistence Radius (ε)</label>
                     </div>
                 </div>
                 <div class="tda-viz" style="width: 250px; height: 180px; background: rgba(0,0,0,0.3); border-radius: var(--radius-md); position: relative; overflow: hidden;">
@@ -686,11 +701,11 @@
     <!-- Awards Section -->
     <section class="section section-alt" id="awards">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> Awards &amp; Honors</h2>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="awards_title">Awards &amp; Honors</span></h2>
             <div class="awards-grid">
                 <div class="award-card award-major">
                     <div class="award-ribbon">2023</div>
-                    <h3>HAN Prijs &mdash; Student of the Year</h3>
+                    <h3 data-i18n="award_han_stud">HAN Prijs &mdash; Student of the Year</h3>
                     <p class="award-org">HAN University of Applied Sciences</p>
                     <div class="award-image">
                         <img src="assets/images/han-prize-ceremony.jpg" alt="Hugo receiving the HAN Prijs Student of the Year 2023 award" loading="lazy">
@@ -698,7 +713,7 @@
                 </div>
                 <div class="award-card award-major">
                     <div class="award-ribbon">2023</div>
-                    <h3>Best Bachelor Thesis of the Year</h3>
+                    <h3 data-i18n="award_thesis">Best Bachelor Thesis of the Year</h3>
                     <p class="award-org">HAN University of Applied Sciences</p>
                     <div class="award-image">
                         <img src="assets/images/best-thesis-certificate.jpg" alt="Certificate for Best Graduation Research Report Award" loading="lazy">
@@ -706,22 +721,22 @@
                 </div>
                 <div class="award-card">
                     <div class="award-ribbon">2024</div>
-                    <h3>FAPESP Master's Scholarship</h3>
+                    <h3 data-i18n="award_fapesp">FAPESP Master's Scholarship</h3>
                     <p class="award-org">FAPESP, Brazil</p>
                 </div>
                 <div class="award-card">
                     <div class="award-ribbon">2024</div>
-                    <h3>CAPES Master's Scholarship</h3>
+                    <h3 data-i18n="award_capes">CAPES Master's Scholarship</h3>
                     <p class="award-org">CAPES, Brazil</p>
                 </div>
                 <div class="award-card">
                     <div class="award-ribbon">2023</div>
-                    <h3>Distinguished Nomination &mdash; ECHO Award</h3>
+                    <h3 data-i18n="award_echo">Distinguished Nomination &mdash; ECHO Award</h3>
                     <p class="award-org">ECHO</p>
                 </div>
                 <div class="award-card">
                     <div class="award-ribbon">2019</div>
-                    <h3>HAN Excellence &amp; Holland Scholarship</h3>
+                    <h3 data-i18n="award_holland">HAN Excellence &amp; Holland Scholarship</h3>
                     <p class="award-org">HAN University / Holland Scholarship Programs</p>
                 </div>
             </div>
@@ -731,7 +746,7 @@
     <!-- Conferences Section -->
     <section class="section" id="conferences">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> Conference Presentations</h2>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="conf_title">Conference Presentations</span></h2>
             <div class="conferences-grid">
                 <div class="conf-card">
                     <div class="conf-image">
@@ -740,14 +755,14 @@
                     <div class="conf-info">
                         <h3>EUROCIM 2025</h3>
                         <p class="conf-talk">"Revisiting Model Evaluation in Treatment Effect Estimation"</p>
-                        <p class="conf-location">University of Ghent, Belgium &middot; April 2025</p>
+                        <p class="conf-location" data-i18n="conf_ghent_loc">University of Ghent, Belgium &middot; April 2025</p>
                     </div>
                 </div>
                 <div class="conf-card">
                     <div class="conf-info conf-info-only">
                         <h3>CIICE</h3>
                         <p class="conf-talk">"To What Extent Does ESG Impact Profitability Within the Airline Industry"</p>
-                        <p class="conf-location">University of Barcelona, Spain &middot; November 2023</p>
+                        <p class="conf-location" data-i18n="conf_barc_loc">University of Barcelona, Spain &middot; November 2023</p>
                     </div>
                 </div>
                 <div class="conf-card">
@@ -757,7 +772,7 @@
                     <div class="conf-info">
                         <h3>ESOBE 2023</h3>
                         <p class="conf-talk">"Application of Persistent Homology in Forecasting Realized Volatility"</p>
-                        <p class="conf-location">University of Glasgow, Scotland &middot; August 2023</p>
+                        <p class="conf-location" data-i18n="conf_glasgow_loc">University of Glasgow, Scotland &middot; August 2023</p>
                     </div>
                 </div>
                 <div class="conf-card">
@@ -767,7 +782,7 @@
                     <div class="conf-info">
                         <h3>16th International Risk Management Conference</h3>
                         <p class="conf-talk">"NBEATSx Is All What You Need for Realized Volatility Forecasting"</p>
-                        <p class="conf-location">University of Florence, Italy &middot; July 2023</p>
+                        <p class="conf-location" data-i18n="conf_florence_loc">University of Florence, Italy &middot; July 2023</p>
                     </div>
                 </div>
                 <div class="conf-card">
@@ -777,7 +792,7 @@
                     <div class="conf-info">
                         <h3>25th Dynamic Econometrics Conference</h3>
                         <p class="conf-talk">"Realized Volatility Predictability through Neural Network and Financial Turbulence"</p>
-                        <p class="conf-location">Bayes Business School, UK &middot; April 2023</p>
+                        <p class="conf-location" data-i18n="conf_bayes_loc">Bayes Business School, UK &middot; April 2023</p>
                     </div>
                 </div>
             </div>
@@ -787,10 +802,10 @@
     <!-- Skills Section -->
     <section class="section section-alt" id="skills">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> Technical Skills</h2>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="skills_title">Technical Skills</span></h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Programming &amp; ML</h3>
+                    <h3 data-i18n="skills_prog">Programming &amp; ML</h3>
                     <div class="skill-items">
                         <div class="skill-item"><span class="skill-name">Python</span><span class="skill-bar" data-level="95"></span></div>
                         <div class="skill-item"><span class="skill-name">PyTorch</span><span class="skill-bar" data-level="90"></span></div>
@@ -800,7 +815,7 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Data &amp; Analytics</h3>
+                    <h3 data-i18n="skills_data">Data &amp; Analytics</h3>
                     <div class="skill-items">
                         <div class="skill-item"><span class="skill-name">SQL</span><span class="skill-bar" data-level="90"></span></div>
                         <div class="skill-item"><span class="skill-name">MATLAB</span><span class="skill-bar" data-level="85"></span></div>
@@ -808,14 +823,14 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Tools &amp; Writing</h3>
+                    <h3 data-i18n="skills_tools">Tools &amp; Writing</h3>
                     <div class="skill-items">
                         <div class="skill-item"><span class="skill-name">LaTeX</span><span class="skill-bar" data-level="90"></span></div>
                         <div class="skill-item"><span class="skill-name">Office 365</span><span class="skill-bar" data-level="90"></span></div>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Research Domains</h3>
+                    <h3 data-i18n="skills_domains">Research Domains</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Causal Inference</span>
                         <span class="skill-tag">Causal Reinforcement Learning</span>
@@ -833,11 +848,11 @@
     <!-- Community Section -->
     <section class="section" id="community">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> Community</h2>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="community_title">Community</span></h2>
             <div class="social-card">
-                <h3>Community Worker</h3>
-                <p class="social-org">Emmaus Church, Dieren, The Netherlands &middot; Jan 2020 &mdash; Feb 2024</p>
-                <p>Participated in social projects for the reintegration of people facing financial and legal challenges, assisted elderly community members, and organized community-bonding events.</p>
+                <h3 data-i18n="community_role">Community Worker</h3>
+                <p class="social-org" data-i18n="community_org">Emmaus Church, Dieren, The Netherlands &middot; Jan 2020 &mdash; Feb 2024</p>
+                <p data-i18n="community_desc">Participated in social projects for the reintegration of people facing financial and legal challenges, assisted elderly community members, and organized community-bonding events.</p>
                 <div class="social-image">
                     <img src="assets/images/emmaus-community.jpg" alt="Emmaus Church in Dieren, The Netherlands" loading="lazy">
                 </div>
@@ -848,8 +863,8 @@
     <!-- Contact Section -->
     <section class="section section-alt" id="contact">
         <div class="container">
-            <h2 class="section-title"><span class="title-accent">//</span> Get in Touch</h2>
-            <p class="section-subtitle contact-subtitle">Open to research collaborations, international opportunities, and interesting conversations.</p>
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="contact_title">Get in Touch</span></h2>
+            <p class="section-subtitle contact-subtitle" data-i18n="contact_subtitle">Open to research collaborations, international opportunities, and interesting conversations.</p>
             <div class="contact-grid">
                 <a href="mailto:hugogobatosouto@gmail.com" class="contact-card">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -878,7 +893,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Hugo Gobato Souto</p>
+            <p data-i18n="footer_text">&copy; 2025 Hugo Gobato Souto</p>
         </div>
     </footer>
 
@@ -901,26 +916,27 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0V7a1 1 0 0 0-1-1zm0 8a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
             </div>
             <div class="agent-info">
-                <h4>Research Assistant</h4>
-                <p>Hugo's Agentic AI Simulation</p>
+                <h4 data-i18n="agent_title">Research Assistant</h4>
+                <p data-i18n="agent_subtitle">Hugo's Agentic AI Simulation</p>
             </div>
             <button id="agent-close" style="margin-left: auto; background: none; border: none; color: var(--text-muted); cursor: pointer;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </button>
         </div>
         <div class="agent-chat" id="agent-chat">
-            <div class="msg msg-bot">
+            <div class="msg msg-bot" data-i18n="agent_welcome">
                 Hello! I'm an Agentic AI simulation trained on Hugo's research and experience. How can I help you today?
             </div>
         </div>
         <div class="agent-input-container">
-            <input type="text" class="agent-input" id="agent-input" placeholder="Ask about Causal Inference, TDA...">
+            <input type="text" class="agent-input" id="agent-input" placeholder="Ask about Causal Inference, TDA..." data-i18n-placeholder="agent_placeholder">
             <button class="agent-send" id="agent-send">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
             </button>
         </div>
     </div>
 
+    <script src="assets/js/translations.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

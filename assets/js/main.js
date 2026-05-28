@@ -1,3 +1,103 @@
+// ===== Multilingual (i18n) Logic =====
+(function() {
+    let currentLang = localStorage.getItem('site-lang') || 'en';
+    
+    if (!['en', 'pt', 'fr', 'nl', 'es'].includes(currentLang)) {
+        currentLang = 'en';
+    }
+
+    const langBtn = document.getElementById('lang-btn');
+    const langDropdown = document.getElementById('lang-dropdown');
+    const langOpts = document.querySelectorAll('.lang-opt');
+    const langCurrentSpan = document.querySelector('.lang-current');
+
+    if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langBtn.classList.toggle('active');
+            langDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            langBtn.classList.remove('active');
+            langDropdown.classList.remove('active');
+        });
+    }
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('site-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+
+        if (langCurrentSpan) {
+            langCurrentSpan.textContent = lang.toUpperCase();
+        }
+
+        langOpts.forEach(opt => {
+            opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+        });
+
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (window.TRANSLATIONS && window.TRANSLATIONS[lang] && window.TRANSLATIONS[lang][key]) {
+                el.innerHTML = window.TRANSLATIONS[lang][key];
+            }
+        });
+
+        const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholders.forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (window.TRANSLATIONS && window.TRANSLATIONS[lang] && window.TRANSLATIONS[lang][key]) {
+                el.setAttribute('placeholder', window.TRANSLATIONS[lang][key]);
+            }
+        });
+
+        document.querySelectorAll('.pub-citations').forEach(el => {
+            if (!el.hasAttribute('data-original-citations')) {
+                el.setAttribute('data-original-citations', el.textContent.trim());
+            }
+            const origText = el.getAttribute('data-original-citations');
+            const match = origText.match(/\d+[\d,]*/);
+            if (match && window.TRANSLATIONS && window.TRANSLATIONS[lang] && window.TRANSLATIONS[lang]['pub_citations']) {
+                const label = window.TRANSLATIONS[lang]['pub_citations'];
+                el.textContent = `${match[0]} ${label}`;
+            }
+        });
+
+        document.querySelectorAll('.pub-wip-badge').forEach(el => {
+            if (window.TRANSLATIONS && window.TRANSLATIONS[lang] && window.TRANSLATIONS[lang]['pub_wip_badge']) {
+                el.textContent = window.TRANSLATIONS[lang]['pub_wip_badge'];
+            }
+        });
+
+        window.dispatchEvent(new CustomEvent('languagechanged', { detail: lang }));
+    }
+
+    langOpts.forEach(opt => {
+        opt.addEventListener('click', () => {
+            const lang = opt.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        // Run immediately in case DOMContentLoaded has already fired or is firing
+        setLanguage(currentLang);
+    });
+
+    // Run immediately as well to prevent flicker
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        setLanguage(currentLang);
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+        });
+    }
+
+    window.getCurrentLang = () => currentLang;
+})();
+
 // ===== Research-themed Canvas: Causal DAG + Topology + Math =====
 (function () {
     const canvas = document.getElementById('topology-canvas');
@@ -280,17 +380,47 @@ window.addEventListener('scroll', updateActiveNav);
     const target = document.getElementById('typing-target');
     if (!target) return;
 
-    const phrases = [
-        'Principal Causal AI Research Scientist @ Dell',
-        'Researcher in Causal Inference & Agentic AI',
-        'Former OpenAI Red Teaming Network Researcher',
-        '20+ published papers | 5,400+ citations',
-    ];
+    const phrasesByLang = {
+        en: [
+            'Principal Causal AI Research Scientist @ Dell',
+            'Researcher in Causal Inference & Agentic AI',
+            'Former OpenAI Red Teaming Network Researcher',
+            '20+ published papers | 5,400+ citations',
+        ],
+        pt: [
+            'Principal Causal AI Research Scientist @ Dell',
+            'Pesquisador em Causal Inference & Agentic AI',
+            'Ex-Pesquisador da OpenAI Red Teaming Network',
+            '20+ artigos publicados | 5.400+ citações',
+        ],
+        fr: [
+            'Principal Causal AI Research Scientist @ Dell',
+            'Chercheur en Causal Inference & Agentic AI',
+            'Ancien Chercheur de l\'OpenAI Red Teaming Network',
+            '20+ articles publiés | 5 400+ citations',
+        ],
+        nl: [
+            'Principal Causal AI Research Scientist @ Dell',
+            'Onderzoeker in Causal Inference & Agentic AI',
+            'Voormalig OpenAI Red Teaming Network Onderzoeker',
+            '20+ gepubliceerde papers | 5.400+ citaties',
+        ],
+        es: [
+            'Principal Causal AI Research Scientist @ Dell',
+            'Investigador en Causal Inference & Agentic AI',
+            'Ex-Investigador de OpenAI Red Teaming Network',
+            '20+ artículos publicados | 5.400+ citas',
+        ]
+    };
+
+    let currentLang = window.getCurrentLang ? window.getCurrentLang() : 'en';
+    let phrases = phrasesByLang[currentLang] || phrasesByLang['en'];
 
     let phraseIdx = 0;
     let charIdx = 0;
     let isDeleting = false;
     let delay = 80;
+    let timerId = null;
 
     function type() {
         const current = phrases[phraseIdx];
@@ -314,10 +444,20 @@ window.addEventListener('scroll', updateActiveNav);
             delay = 400;
         }
 
-        setTimeout(type, delay);
+        timerId = setTimeout(type, delay);
     }
 
     type();
+
+    window.addEventListener('languagechanged', (e) => {
+        const newLang = e.detail;
+        phrases = phrasesByLang[newLang] || phrasesByLang['en'];
+        phraseIdx = 0;
+        charIdx = 0;
+        isDeleting = false;
+        if (timerId) clearTimeout(timerId);
+        type();
+    });
 })();
 
 // ===== Animated Counters =====
@@ -700,6 +840,33 @@ window.addEventListener('scroll', updateActiveNav);
     resize();
     animate();
 
+    function updateCFText() {
+        const lang = window.getCurrentLang ? window.getCurrentLang() : 'en';
+        if (mode === 'obs') {
+            status.innerText = window.TRANSLATIONS[lang]["cf_status_obs"];
+            status.style.color = 'var(--primary)';
+            math.innerHTML = "\( E[Y|X] \)";
+            log.innerHTML = window.TRANSLATIONS[lang]["cf_log_obs"];
+        } else {
+            status.innerText = window.TRANSLATIONS[lang]["cf_status_cf"];
+            status.style.color = 'var(--accent-orange)';
+            math.innerHTML = "\( E[Y | do(X)] \)";
+            log.innerHTML = window.TRANSLATIONS[lang]["cf_log_cf"];
+        }
+        // Trigger KaTeX rendering for the new math content
+        if (window.renderMathInElement) {
+            renderMathInElement(math, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError : false
+            });
+        }
+    }
+
     document.querySelectorAll('.cf-toggle').forEach(btn => {
         btn.addEventListener('click', () => {
             mode = btn.getAttribute('data-mode');
@@ -707,31 +874,12 @@ window.addEventListener('scroll', updateActiveNav);
             document.querySelectorAll('.cf-toggle').forEach(b => b.classList.toggle('btn-outline', true));
             btn.classList.add('btn-primary');
             btn.classList.remove('btn-outline');
-
-            if (mode === 'obs') {
-                status.innerText = "Agent Mode: Passive Observation";
-                status.style.color = 'var(--primary)';
-                math.innerHTML = "\( E[Y|X] \)";
-                log.innerHTML = "> Monitoring observational manifold...<br>> Bias detected in state transitions.<br>> Warning: Confounding from U persists.";
-            } else {
-                status.innerText = "Agent Mode: Causal Action [do(X)]";
-                status.style.color = 'var(--accent-orange)';
-                math.innerHTML = "\( E[Y | do(X)] \)";
-                log.innerHTML = "> Performing policy intervention...<br>> Cutting back-door path: U → X.<br>> Learning true causal rewards...";
-            }
-            // Trigger KaTeX rendering for the new math content
-            if (window.renderMathInElement) {
-                renderMathInElement(math, {
-                    delimiters: [
-                        {left: '$$', right: '$$', display: true},
-                        {left: '$', right: '$', display: false},
-                        {left: '\\(', right: '\\)', display: false},
-                        {left: '\\[', right: '\\]', display: true}
-                    ],
-                    throwOnError : false
-                });
-            }
+            updateCFText();
         });
+    });
+
+    window.addEventListener('languagechanged', () => {
+        updateCFText();
     });
 
     window.addEventListener('resize', resize);
@@ -751,17 +899,6 @@ window.addEventListener('scroll', updateActiveNav);
     fab.addEventListener('click', () => windowEl.classList.toggle('active'));
     closeBtn.addEventListener('click', () => windowEl.classList.remove('active'));
 
-    const KNOWLEDGE_BASE = {
-        'causal': 'Hugo is an expert in Causal Inference, currently leading research at Dell Technologies. He specializes in Causal Reinforcement Learning and treatment effect estimation.',
-        'topology': 'Hugo proposed the Topological Tail Dependence Theory during his Bachelor thesis, using Persistent Homology to forecast realized volatility. Truly cutting-edge stuff!',
-        'agentic': 'At Dell, Hugo coordinates research on the synergies of Agentic AI, Causal Inference, and Causal RL. He also worked with OpenAI on the GPT-4o System Card.',
-        'netherlands': 'Hugo spent several years in the Netherlands, studying at HAN and working at BASF. He speaks Dutch fluently and loved the Dutch culture!',
-        'brazil': 'Hugo was born in Brazil and returned there after his time in the Netherlands. He is currently based in Ilhabela.',
-        'finance': 'His background is in Quantitative Finance, with many publications in journals like Expert Systems with Applications and Financial Innovation.',
-        'cv': 'You can download Hugo\'s CV from the Hero section. It was last updated in April 2026.',
-        'contact': 'You can reach Hugo via LinkedIn or the contact form at the bottom of this page.'
-    };
-
     function addMessage(text, side) {
         const msg = document.createElement('div');
         msg.className = `msg msg-${side}`;
@@ -771,17 +908,32 @@ window.addEventListener('scroll', updateActiveNav);
     }
 
     function botResponse(query) {
-        addMessage('Thinking...', 'bot');
+        const lang = window.getCurrentLang ? window.getCurrentLang() : 'en';
+        const thinkingStr = window.TRANSLATIONS[lang]["agent_thinking"] || "Thinking...";
+        addMessage(thinkingStr, 'bot');
         const lastMsg = chat.lastElementChild;
         
         setTimeout(() => {
-            let response = "I'm not sure about that, but Hugo is always open to discussing research! You should check his publications section.";
+            let response = window.TRANSLATIONS[lang]["agent_fallback"] || "I'm not sure about that, but Hugo is always open to discussing research! You should check his publications section.";
             const q = query.toLowerCase();
             
-            for (const key in KNOWLEDGE_BASE) {
-                if (q.includes(key)) {
-                    response = KNOWLEDGE_BASE[key];
-                    break;
+            const matches = [
+                { keys: ['causal'], key: 'kb_causal' },
+                { keys: ['topolog', 'homolog', 'tda'], key: 'kb_topology' },
+                { keys: ['agentic', 'rl', 'reinforcement', 'inteligência agêntica'], key: 'kb_agentic' },
+                { keys: ['netherland', 'holland', 'dutch', 'holanda', 'neerland'], key: 'kb_netherlands' },
+                { keys: ['brazil', 'brasil', 'ilhabela'], key: 'kb_brazil' },
+                { keys: ['finance', 'stock', 'volatilit', 'finança', 'ações', 'mercado'], key: 'kb_finance' },
+                { keys: ['cv', 'curriculum', 'resume', 'currículo'], key: 'kb_cv' },
+                { keys: ['contact', 'linkedin', 'email', 'contato', 'falar', 'mensagem'], key: 'kb_contact' }
+            ];
+
+            for (const match of matches) {
+                if (match.keys.some(k => q.includes(k))) {
+                    if (window.TRANSLATIONS[lang] && window.TRANSLATIONS[lang][match.key]) {
+                        response = window.TRANSLATIONS[lang][match.key];
+                        break;
+                    }
                 }
             }
             
@@ -800,6 +952,12 @@ window.addEventListener('scroll', updateActiveNav);
     sendBtn.addEventListener('click', handleSend);
     input.addEventListener('keypress', e => {
         if (e.key === 'Enter') handleSend();
+    });
+
+    window.addEventListener('languagechanged', () => {
+        const lang = window.getCurrentLang ? window.getCurrentLang() : 'en';
+        chat.innerHTML = '';
+        addMessage(window.TRANSLATIONS[lang]["agent_welcome"], 'bot');
     });
 })();
 
