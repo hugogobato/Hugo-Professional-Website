@@ -1,0 +1,480 @@
+/* =========================================================
+   pages.css — components shared by the detail pages
+   (research, endorsements, talks, service)
+   Extends assets/css/style.css; relies on its CSS variables.
+   ========================================================= */
+
+/* ===== Page header (replaces the hero on detail pages) ===== */
+.page-header {
+    position: relative;
+    z-index: 2;
+    padding: 11rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(3, 7, 18, 0.55) 0%, rgba(10, 14, 23, 0.93) 100%);
+}
+
+.page-header .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.page-header .breadcrumb a { color: var(--text-muted); }
+.page-header .breadcrumb a:hover { color: var(--primary); }
+
+.page-header h1 {
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 .title-accent {
+    color: var(--primary);
+    font-family: var(--font-mono);
+    font-weight: 500;
+}
+
+.page-header .page-lede {
+    max-width: 720px;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+.page-header .page-lede strong { color: var(--text); font-weight: 600; }
+
+/* Quick jump links inside a page */
+.page-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2rem;
+}
+
+.page-jump a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    transition: all var(--transition);
+}
+
+.page-jump a:hover {
+    border-color: var(--border-active);
+    color: var(--text);
+    background: var(--bg-card-hover);
+}
+
+/* Current-page highlight in the navbar (detail pages have no scroll-spy) */
+.nav-link.current {
+    color: var(--primary);
+    background: var(--primary-glow);
+}
+
+/* ===== Generic card grid ===== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+
+/* ===== "Explore in depth" cards (used on the home page) ===== */
+.explore-card {
+    display: block;
+    position: relative;
+    padding: 1.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    color: inherit;
+    overflow: hidden;
+    transition: all var(--transition);
+}
+
+.explore-card:hover {
+    border-color: var(--border-active);
+    background: var(--bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    color: inherit;
+}
+
+.explore-card .explore-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.explore-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.explore-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.explore-card .explore-arrow {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--primary);
+}
+
+/* ===== Endorsement / quote cards ===== */
+.quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.quote-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    transition: all var(--transition);
+}
+
+.quote-card:hover {
+    background: var(--bg-card-hover);
+    border-left-color: var(--accent-orange);
+}
+
+.quote-card blockquote {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.quote-card blockquote::before {
+    content: '\201C';
+    font-size: 3rem;
+    line-height: 0;
+    color: var(--primary);
+    opacity: 0.35;
+    margin-right: 0.2rem;
+    vertical-align: -0.35em;
+}
+
+.quote-card .quote-attrib {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
+
+.quote-card .quote-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    display: block;
+}
+
+.quote-card .quote-role {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 0.2rem;
+    line-height: 1.5;
+}
+
+.quote-card .quote-bio {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.6rem;
+    line-height: 1.6;
+}
+
+/* Relationship badge: how the author knows the work */
+.rel-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+    border: 1px solid;
+}
+
+.rel-independent { color: var(--accent-green); border-color: rgba(16, 185, 129, 0.35); background: rgba(16, 185, 129, 0.08); }
+.rel-academic    { color: var(--primary);      border-color: rgba(59, 130, 246, 0.35); background: rgba(59, 130, 246, 0.08); }
+.rel-industry    { color: var(--accent-orange); border-color: rgba(249, 115, 22, 0.35); background: rgba(249, 115, 22, 0.08); }
+.rel-collab      { color: var(--accent-purple); border-color: rgba(139, 92, 246, 0.35); background: rgba(139, 92, 246, 0.08); }
+
+/* ===== Notice / callout box ===== */
+.notice {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(249, 115, 22, 0.06));
+    border: 1px solid var(--border-active);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.notice .notice-icon { font-size: 1.5rem; line-height: 1.3; }
+.notice h3 { font-size: 1rem; color: var(--primary); margin-bottom: 0.5rem; }
+.notice p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+.notice p + p { margin-top: 0.6rem; }
+
+/* ===== Entry list (talks, service, committees) ===== */
+.entry-card {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.entry-card:last-child { border-bottom: none; }
+
+.entry-date {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--primary);
+    padding-top: 0.25rem;
+}
+
+.entry-body h3 {
+    font-size: 1.03rem;
+    margin-bottom: 0.35rem;
+    line-height: 1.45;
+}
+
+.entry-venue {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.entry-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+.entry-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    margin-left: 0.5rem;
+    vertical-align: 0.15em;
+}
+
+.entry-tag-upcoming { color: var(--accent-gold); border-color: rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.08); }
+.entry-tag-invited  { color: var(--accent-purple); border-color: rgba(139, 92, 246, 0.35); background: rgba(139, 92, 246, 0.08); }
+
+/* ===== Research theme cards ===== */
+.theme-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: all var(--transition);
+}
+
+.theme-card:hover { border-color: var(--border-active); background: var(--bg-card-hover); }
+
+.theme-card h3 {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+}
+
+.theme-card .theme-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.theme-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ===== Featured preprint ===== */
+.featured-paper {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.06));
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.featured-paper .paper-flag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.1);
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+}
+
+.featured-paper h3 { font-size: 1.35rem; line-height: 1.35; margin-bottom: 0.6rem; }
+.featured-paper .paper-authors { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.featured-paper .paper-abstract { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; }
+.featured-paper .paper-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+}
+
+/* ===== Software cards ===== */
+.software-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition: all var(--transition);
+}
+
+.software-card:hover { border-color: var(--border-active); background: var(--bg-card-hover); }
+.software-card h3 { font-size: 1rem; margin-bottom: 0.4rem; font-family: var(--font-mono); }
+.software-card p { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.65; }
+.software-card .software-venue { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem; display: block; }
+
+/* ===== Media cards (podcasts, blogs, press) ===== */
+.media-card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    color: inherit;
+    transition: all var(--transition);
+}
+
+.media-card:hover {
+    border-color: var(--border-active);
+    background: var(--bg-card-hover);
+    transform: translateY(-3px);
+    color: inherit;
+}
+
+.media-card .media-kind {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.media-card h3 { font-size: 1rem; margin-bottom: 0.4rem; line-height: 1.45; }
+.media-card p { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; }
+.media-card .media-outlet { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem; display: block; }
+
+/* ===== Service cards ===== */
+.service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+.service-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+.service-card .service-org { font-size: 0.85rem; color: var(--primary); margin-bottom: 0.6rem; }
+.service-card p { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ===== Fact strip ===== */
+.fact-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.fact {
+    background: var(--bg);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+}
+
+.fact .fact-number {
+    display: block;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.1;
+}
+
+.fact .fact-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+    display: block;
+}
+
+/* ===== Zoomable image ===== */
+.zoomable img { cursor: pointer; border-radius: var(--radius-md); border: 1px solid var(--border); }
+
+/* ===== Back-to-home strip at the bottom of detail pages ===== */
+.page-footer-nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .page-header { padding: 8.5rem 0 3rem; }
+    .quote-grid { grid-template-columns: 1fr; }
+    .entry-card { grid-template-columns: 1fr; gap: 0.5rem; }
+    .entry-date { padding-top: 0; }
+    .notice { flex-direction: column; gap: 0.75rem; }
+}
+
+/* Full-width band behind the bottom page-navigation strip */
+.page-footer-band {
+    position: relative;
+    z-index: 2;
+    background: rgba(10, 14, 23, 0.93);
+}

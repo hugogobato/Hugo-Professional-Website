@@ -26,7 +26,8 @@
         });
     </script>
 
-    <link rel="stylesheet" href="assets/css/style.css?v=1.0.2">
+    <link rel="stylesheet" href="assets/css/style.css?v=1.1.0">
+    <link rel="stylesheet" href="assets/css/pages.css?v=1.1.0">
 </head>
 <body>
     <!-- Animated topology background canvas -->
@@ -60,10 +61,10 @@
                 <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
                 <li><a href="#story" class="nav-link" data-i18n="nav_story">My Story</a></li>
                 <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Experience</a></li>
-                <li><a href="#education" class="nav-link" data-i18n="nav_education">Education</a></li>
-                <li><a href="#publications" class="nav-link" data-i18n="nav_research">Research</a></li>
-                <li><a href="#awards" class="nav-link" data-i18n="nav_awards">Awards</a></li>
-                <li><a href="#conferences" class="nav-link" data-i18n="nav_conferences">Conferences</a></li>
+                <li><a href="research.html" class="nav-link" data-i18n="nav_research">Research</a></li>
+                <li><a href="endorsements.html" class="nav-link" data-i18n="nav_endorsements">Endorsements</a></li>
+                <li><a href="talks.html" class="nav-link" data-i18n="nav_talks">Talks &amp; Media</a></li>
+                <li><a href="service.html" class="nav-link" data-i18n="nav_service">Service</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
         </div>
@@ -79,11 +80,11 @@
                 <p class="hero-subtitle" data-i18n="hero_subtitle">From self-taught researcher to leading causal AI at scale &mdash; driven by curiosity, shaped by two cultures.</p>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number" data-target="6000">0</span>
+                        <span class="stat-number" data-target="6180">0</span>
                         <span class="stat-label" data-i18n="hero_citations_label">Citations</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number" data-target="20">0</span>
+                        <span class="stat-number" data-target="25">0</span>
                         <span class="stat-label" data-i18n="hero_publications_label">Publications</span>
                     </div>
                     <div class="stat">
@@ -93,7 +94,7 @@
                 </div>
                 <div class="hero-actions">
                     <a href="#story" class="btn btn-primary" data-i18n="hero_read_story">Read My Story</a>
-                    <a href="assets/Hugo_Gobato_Souto_CV.pdf" class="btn btn-outline" target="_blank" data-i18n="hero_download_cv">Download CV <span class="btn-note">(Apr 2026)</span></a>
+                    <a href="assets/Hugo_Gobato_Souto_CV.pdf" class="btn btn-outline" target="_blank" data-i18n="hero_download_cv">Download CV <span class="btn-note">(Jun 2026)</span></a>
                 </div>
                 <div class="hero-social">
                     <a href="https://www.linkedin.com/in/hugo-gobato-souto-669b17161/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
@@ -222,8 +223,42 @@
         </div>
     </section>
 
+    <!-- Explore in Depth -->
+    <section class="section section-alt" id="explore">
+        <div class="container">
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="explore_title">Explore in Depth</span></h2>
+            <p class="section-subtitle" data-i18n="explore_sub">The headlines are above. If you want the full record &mdash; every paper, every letter, every talk &mdash; it lives on these pages.</p>
+            <div class="card-grid">
+                <a href="research.html" class="explore-card">
+                    <span class="explore-icon">📐</span>
+                    <h3 data-i18n="explore_research_t">Research &amp; Publications</h3>
+                    <p data-i18n="explore_research_p">The complete list: journal articles, software papers, preprints, my master's dissertation, and the newest work on topological causal data analysis.</p>
+                    <span class="explore-arrow" data-i18n="explore_cta">Explore</span> <span class="explore-arrow">&rarr;</span>
+                </a>
+                <a href="endorsements.html" class="explore-card">
+                    <span class="explore-icon">💬</span>
+                    <h3 data-i18n="explore_end_t">What Others Say</h3>
+                    <p data-i18n="explore_end_p">Excerpts from 36 reference letters &mdash; supervisors, co-authors, industry colleagues, and independent researchers who found the work through the literature.</p>
+                    <span class="explore-arrow" data-i18n="explore_cta">Explore</span> <span class="explore-arrow">&rarr;</span>
+                </a>
+                <a href="talks.html" class="explore-card">
+                    <span class="explore-icon">🎤</span>
+                    <h3 data-i18n="explore_talks_t">Talks &amp; Media</h3>
+                    <p data-i18n="explore_talks_p">Conference presentations, invited university lectures, podcast appearances, and press coverage of the research.</p>
+                    <span class="explore-arrow" data-i18n="explore_cta">Explore</span> <span class="explore-arrow">&rarr;</span>
+                </a>
+                <a href="service.html" class="explore-card">
+                    <span class="explore-icon">🎓</span>
+                    <h3 data-i18n="explore_service_t">Academic Service</h3>
+                    <p data-i18n="explore_service_p">Thesis committees, peer review, teaching, awards with dates and reference numbers, and the training record behind the mathematics.</p>
+                    <span class="explore-arrow" data-i18n="explore_cta">Explore</span> <span class="explore-arrow">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- My Story Section -->
-    <section class="section section-alt" id="story">
+    <section class="section" id="story">
         <div class="container">
             <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="story_title">My Story</span></h2>
             <p class="section-subtitle" data-i18n="story_subtitle">A path built on curiosity, grit, and challenging the status quo.</p>
@@ -382,7 +417,7 @@
                         <p data-i18n="story_2026_text">
                             Now as <strong>Principal Causal AI Research Scientist at Dell Technologies</strong>,
                             I'm exploring the frontier where Agentic AI meets Causal Inference and Causal Reinforcement Learning.
-                            With 5,445+ citations at age 24, I continue to push boundaries &mdash; always looking
+                            With 6,180+ citations at age 24, I continue to push boundaries &mdash; always looking
                             for the next problem to solve, the next assumption to challenge.
                         </p>
                         <div class="story-gallery">
@@ -406,7 +441,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="section" id="experience">
+    <section class="section section-alt" id="experience">
         <div class="container">
             <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="exp_title">Professional Experience</span></h2>
             <div class="timeline">
@@ -481,9 +516,10 @@
     </section>
 
     <!-- Education Section -->
-    <section class="section section-alt" id="education">
+    <section class="section" id="education">
         <div class="container">
             <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="edu_title">Education</span></h2>
+            <p class="section-subtitle" data-i18n="edu_see_all">My master's dissertation and its three methodological contributions are described on the <a href="research.html#thesis">Research</a> page.</p>
             <div class="education-grid">
                 <div class="edu-card edu-card-featured">
                     <div class="edu-flag flag-br"></div>
@@ -528,14 +564,15 @@
     </section>
 
     <!-- Publications Section -->
-    <section class="section" id="publications">
+    <section class="section section-alt" id="publications">
         <div class="container">
             <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="pub_title">Selected Publications</span></h2>
             <p class="section-subtitle">
                 <a href="https://scholar.google.com/citations?user=a8xbGQwAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
                 &middot;
                 <a href="https://orcid.org/0000-0002-7039-0572" target="_blank" rel="noopener">ORCID</a>
-                &mdash; 5,445+ citations &middot; h-index: 9 &middot; i10-index: 9
+                &mdash; 6,180+ citations &middot; h-index: 9 &middot; i10-index: 9
+                &middot; <a href="research.html" data-i18n="pub_see_all">see the complete record &rarr;</a>
             </p>
 
             <div class="pub-filter">
@@ -565,6 +602,15 @@
             </div>
 
             <div class="publications-list">
+                <div class="pub-item pub-highlight" data-category="causal wip">
+                    <div class="pub-year">2026</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.48550/arXiv.2607.28161" target="_blank" rel="noopener">A Mathematical Framework for Topological Causal Data Analysis</a></h3>
+                        <p class="pub-authors">H.G. Souto, I. Diamantis</p>
+                        <p class="pub-journal">arXiv:2607.28161 [stat.ME] &mdash; <a href="research.html#new" data-i18n="pub_read_abstract">read the abstract</a></p>
+                        <span class="pub-wip-badge">Work in Progress</span>
+                    </div>
+                </div>
                 <div class="pub-item pub-highlight" data-category="ai">
                     <div class="pub-year">2024</div>
                     <div class="pub-details">
@@ -677,6 +723,15 @@
                 <div class="pub-item pub-wip" data-category="causal wip">
                     <div class="pub-year">2024</div>
                     <div class="pub-details">
+                        <h3><a href="https://doi.org/10.48550/arXiv.2409.05161" target="_blank" rel="noopener">Beyond Arbitrary Replications: A Principled Approach to Simulation Design in Causal Inference</a></h3>
+                        <p class="pub-authors">H.G. Souto, F. Louzada Neto</p>
+                        <p class="pub-journal">arXiv preprint &mdash; introduces TISCA</p>
+                        <span class="pub-wip-badge">Work in Progress</span>
+                    </div>
+                </div>
+                <div class="pub-item pub-wip" data-category="causal wip">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
                         <h3><a href="https://doi.org/10.48550/arXiv.2410.15560" target="_blank" rel="noopener">Ablation Studies for Novel Treatment Effect Estimation Models</a></h3>
                         <p class="pub-authors">H.G. Souto, F. Louzada Neto</p>
                         <p class="pub-journal">arXiv preprint</p>
@@ -698,10 +753,70 @@
         </div>
     </section>
 
+    <!-- Endorsements Teaser -->
+    <section class="section" id="endorsements-teaser">
+        <div class="container">
+            <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="endteaser_title">In Their Words</span></h2>
+            <p class="section-subtitle" data-i18n="endteaser_sub">A few excerpts from the reference letters. Full letters are shared on request, with the author's permission.</p>
+
+            <div class="quote-grid">
+                <div class="quote-card">
+                    <span class="rel-badge rel-academic">Master's Supervisor</span>
+                    <blockquote>
+                        Mr. Hugo Gobato Souto is in the top 2% of the most capable researchers I have supervised out of the
+                        dozens of students I have taught or supervised at USP.
+                    </blockquote>
+                    <div class="quote-attrib">
+                        <span class="quote-name">Prof. Francisco Louzada Neto, D.Phil.</span>
+                        <span class="quote-role">Full Professor of Statistics, University of São Paulo; Director, CeMEAI</span>
+                    </div>
+                </div>
+                <div class="quote-card">
+                    <span class="rel-badge rel-independent">Independent Peer</span>
+                    <blockquote>
+                        It was not the defence of an author who needed his paper to be right, but the engagement of a researcher
+                        who appeared at least as curious as I was about whether his own result would survive a serious challenge.
+                    </blockquote>
+                    <div class="quote-attrib">
+                        <span class="quote-name">Yusufhan Balci</span>
+                        <span class="quote-role">Doctoral Researcher in Epidemiology and Data Science, Amsterdam UMC</span>
+                    </div>
+                </div>
+                <div class="quote-card">
+                    <span class="rel-badge rel-collab">Research Collaborator</span>
+                    <blockquote>
+                        He is unusual because he can connect these areas in a way that is mathematically informed, statistically
+                        careful, and computationally realistic.
+                    </blockquote>
+                    <div class="quote-attrib">
+                        <span class="quote-name">Ioannis Diamantis, Ph.D.</span>
+                        <span class="quote-role">Assistant Professor, School of Business and Economics, Maastricht University</span>
+                    </div>
+                </div>
+                <div class="quote-card">
+                    <span class="rel-badge rel-industry">Industry Colleague</span>
+                    <blockquote>
+                        It is uncommon to find someone who is genuinely strong across analysis, agentic AI systems, and software
+                        engineering at the same time. […] Hugo moves fluently between all three.
+                    </blockquote>
+                    <div class="quote-attrib">
+                        <span class="quote-name">Pedro Henrique Braga Lisboa</span>
+                        <span class="quote-role">Principal Research Scientist, Dell Technologies</span>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2.5rem;">
+                <a href="endorsements.html" class="btn btn-primary" data-i18n="endteaser_more">Read all 36 endorsements</a>
+            </p>
+        </div>
+    </section>
+
     <!-- Awards Section -->
     <section class="section section-alt" id="awards">
         <div class="container">
             <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="awards_title">Awards &amp; Honors</span></h2>
+            <p class="section-subtitle" data-i18n="awards_see_all">Dates, awarding bodies, and scholarship reference numbers are listed on the <a href="service.html#awards">Academic Service</a> page.</p>
             <div class="awards-grid">
                 <div class="award-card award-major">
                     <div class="award-ribbon">2023</div>
@@ -747,7 +862,22 @@
     <section class="section" id="conferences">
         <div class="container">
             <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="conf_title">Conference Presentations</span></h2>
+            <p class="section-subtitle" data-i18n="conf_see_all">A selection. The full list, together with invited university lectures, podcasts, and press coverage, is on the <a href="talks.html">Talks &amp; Media</a> page.</p>
             <div class="conferences-grid">
+                <div class="conf-card">
+                    <div class="conf-info conf-info-only">
+                        <h3>WPSM 2026</h3>
+                        <p class="conf-talk">"On the Applications of Nonparametric Bayesian Methods in Heterogeneous Treatment Effect Estimation"</p>
+                        <p class="conf-location" data-i18n="conf_wpsm_loc">Federal University of São Carlos, Brazil &middot; February 2026</p>
+                    </div>
+                </div>
+                <div class="conf-card">
+                    <div class="conf-info conf-info-only">
+                        <h3>CDSM 2025</h3>
+                        <p class="conf-talk">"Forests for Differences: Robust Causal Inference Beyond Parametric DiD"</p>
+                        <p class="conf-location" data-i18n="conf_cdsm_loc">Causal Data Science Meeting &middot; Online &middot; November 2025</p>
+                    </div>
+                </div>
                 <div class="conf-card">
                     <div class="conf-image">
                         <img src="assets/images/ghent-poster.jpg" alt="Presenting at EUROCIM 2025, University of Ghent" loading="lazy">
@@ -849,6 +979,7 @@
     <section class="section" id="community">
         <div class="container">
             <h2 class="section-title"><span class="title-accent">//</span> <span data-i18n="community_title">Community</span></h2>
+            <p class="section-subtitle" data-i18n="community_see_all">Teaching, thesis committees, and peer review are on the <a href="service.html">Academic Service</a> page.</p>
             <div class="social-card">
                 <h3 data-i18n="community_role">Community Worker</h3>
                 <p class="social-org" data-i18n="community_org">Emmaus Church, Dieren, The Netherlands &middot; Jan 2020 &mdash; Feb 2024</p>
@@ -884,7 +1015,7 @@
                 </a>
                 <a href="assets/Hugo_Gobato_Souto_CV.pdf" target="_blank" class="contact-card">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-                    <span>CV (Apr 2026)</span>
+                    <span>CV (Jun 2026)</span>
                 </a>
             </div>
         </div>
@@ -893,7 +1024,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p data-i18n="footer_text">&copy; 2025 Hugo Gobato Souto</p>
+            <p data-i18n="footer_text">&copy; 2026 Hugo Gobato Souto</p>
         </div>
     </footer>
 
@@ -936,7 +1067,7 @@
         </div>
     </div>
 
-    <script src="assets/js/translations.js?v=1.0.2"></script>
-    <script src="assets/js/main.js?v=1.0.2"></script>
+    <script src="assets/js/translations.js?v=1.1.0"></script>
+    <script src="assets/js/main.js?v=1.1.0"></script>
 </body>
 </html>

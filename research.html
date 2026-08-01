@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research &amp; Publications | Hugo Gobato Souto</title>
+    <meta name="description" content="Complete publication record of Hugo Gobato Souto: causal inference, topological data analysis, financial machine learning, and agentic AI. Journal articles, software papers, preprints, and open-source tools.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError : false
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css?v=1.1.0">
+    <link rel="stylesheet" href="assets/css/pages.css?v=1.1.0">
+</head>
+<body>
+    <canvas id="topology-canvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo"><span class="logo-node"></span>HGS</a>
+                <div class="lang-selector">
+                    <button class="lang-btn" id="lang-btn" aria-label="Select language">
+                        <span class="lang-current">EN</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lang-caret"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button data-lang="en" class="lang-opt active">EN</button>
+                        <button data-lang="pt" class="lang-opt">PT</button>
+                        <button data-lang="fr" class="lang-opt">FR</button>
+                        <button data-lang="nl" class="lang-opt">NL</button>
+                        <button data-lang="es" class="lang-opt">ES</button>
+                    </div>
+                </div>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="index.html#story" class="nav-link" data-i18n="nav_story">My Story</a></li>
+                <li><a href="research.html" class="nav-link current" data-i18n="nav_research">Research</a></li>
+                <li><a href="endorsements.html" class="nav-link" data-i18n="nav_endorsements">Endorsements</a></li>
+                <li><a href="talks.html" class="nav-link" data-i18n="nav_talks">Talks &amp; Media</a></li>
+                <li><a href="service.html" class="nav-link" data-i18n="nav_service">Service</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <p class="breadcrumb"><a href="index.html" data-i18n="crumb_home">Home</a> / <span data-i18n="nav_research">Research</span></p>
+            <h1><span class="title-accent">//</span> <span data-i18n="res_title">Research &amp; Publications</span></h1>
+            <p class="page-lede" data-i18n="res_lede">
+                The complete record: peer-reviewed articles, software papers, conference proceedings, preprints, and
+                open-source tools. If you only want the headline, it is this &mdash; I build and stress-test
+                <strong>nonparametric methods for causal inference</strong>, and I use
+                <strong>topology</strong> to describe structure that ordinary statistics misses.
+            </p>
+            <div class="page-jump">
+                <a href="#themes" data-i18n="res_jump_themes">Research Themes</a>
+                <a href="#new" data-i18n="res_jump_new">Latest Preprint</a>
+                <a href="#thesis" data-i18n="res_jump_thesis">Master's Thesis</a>
+                <a href="#journals" data-i18n="res_jump_journals">Journal Articles</a>
+                <a href="#software" data-i18n="res_jump_software">Software</a>
+                <a href="#preprints" data-i18n="res_jump_preprints">Preprints</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="fact-strip">
+                <div class="fact"><span class="fact-number">6,180</span><span class="fact-label" data-i18n="res_fact_cit">Citations</span></div>
+                <div class="fact"><span class="fact-number">9</span><span class="fact-label" data-i18n="res_fact_h">h-index</span></div>
+                <div class="fact"><span class="fact-number">9</span><span class="fact-label" data-i18n="res_fact_i10">i10-index</span></div>
+                <div class="fact"><span class="fact-number">18</span><span class="fact-label" data-i18n="res_fact_peer">Peer-reviewed papers</span></div>
+                <div class="fact"><span class="fact-number">3</span><span class="fact-label" data-i18n="res_fact_pkg">Open-source packages</span></div>
+            </div>
+
+            <p class="section-subtitle" style="margin-bottom: 4rem;">
+                <a href="https://scholar.google.com/citations?user=a8xbGQwAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                &middot;
+                <a href="https://orcid.org/0000-0002-7039-0572" target="_blank" rel="noopener">ORCID</a>
+                &middot;
+                <a href="https://github.com/hugogobato" target="_blank" rel="noopener">GitHub</a>
+            </p>
+
+            <!-- ============ THEMES ============ -->
+            <h2 class="section-title" id="themes"><span class="title-accent">//</span> <span data-i18n="res_themes_title">Research Themes</span></h2>
+            <p class="section-subtitle" data-i18n="res_themes_sub">Four lines of work that keep converging on the same question: when is an estimate actually trustworthy?</p>
+
+            <div class="card-grid" style="margin-bottom: 5rem;">
+                <div class="theme-card">
+                    <span class="theme-kicker">01 &mdash; Causal Inference</span>
+                    <h3 data-i18n="res_theme1_title">Nonparametric treatment effect estimation</h3>
+                    <p data-i18n="res_theme1_text">
+                        Bayesian Causal Forests and their extensions: what the propensity-score component actually buys you,
+                        how to make difference-in-differences work under staggered adoption and effect heterogeneity, and how
+                        to estimate ATE and CATE when the treatment is continuous rather than binary.
+                    </p>
+                </div>
+                <div class="theme-card">
+                    <span class="theme-kicker">02 &mdash; Methodology</span>
+                    <h3 data-i18n="res_theme2_title">How we evaluate causal estimators</h3>
+                    <p data-i18n="res_theme2_text">
+                        Simulation studies in causal inference are usually built by convention rather than by design, which
+                        quietly biases every comparison drawn from them. This line of work asks how many replications are
+                        actually needed, what a data-generating process should look like, and what an ablation study can and
+                        cannot establish.
+                    </p>
+                </div>
+                <div class="theme-card">
+                    <span class="theme-kicker">03 &mdash; Topological Data Analysis</span>
+                    <h3 data-i18n="res_theme3_title">Shape as a statistical summary</h3>
+                    <p data-i18n="res_theme3_text">
+                        Persistent homology applied to financial markets &mdash; the Topological Tail Dependence Theory &mdash;
+                        and, more recently, the question of what topology means once causal assumptions are on the table.
+                        Persistence diagrams, Wasserstein and bottleneck distances, and stability results as inputs to
+                        forecasting and to causal estimands.
+                    </p>
+                </div>
+                <div class="theme-card">
+                    <span class="theme-kicker">04 &mdash; Agentic &amp; Financial AI</span>
+                    <h3 data-i18n="res_theme4_title">Causal reasoning inside AI systems</h3>
+                    <p data-i18n="res_theme4_text">
+                        Deep architectures for realized volatility (NBEATSx, NHITS, TimesNet, TSMixer), distribution-aware loss
+                        functions built on Wasserstein distance, and the current work at Dell on where agentic AI, causal
+                        inference, and causal reinforcement learning meet.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ============ NEW PREPRINT ============ -->
+            <h2 class="section-title" id="new"><span class="title-accent">//</span> <span data-i18n="res_new_title">Latest Preprint</span></h2>
+
+            <div class="featured-paper">
+                <span class="paper-flag" data-i18n="res_new_flag">New &middot; 2026</span>
+                <h3>A Mathematical Framework for Topological Causal Data Analysis</h3>
+                <p class="paper-authors">Hugo Gobato Souto, Ioannis Diamantis</p>
+                <p class="paper-abstract">
+                    Many modern outcomes, including images, point clouds, networks, and spatial fields, are structured objects
+                    for which \(Y^1 - Y^0\) may be undefined or scientifically inadequate. We introduce <em>Topological Causal
+                    Data Analysis</em> (TCDA), a framework separating the observation space, causal-model class, topological
+                    representation, and causal query. Topology does not define interventions; it supplies stable,
+                    shape-sensitive summaries after causal assumptions have been specified. We distinguish outcome-level TCDA,
+                    which transforms individual potential outcomes, from distribution-level TCDA, which transforms
+                    interventional outcome laws, and characterize when outcome and distribution level contrasts agree.
+                    Building on recent outcome-level theory, we formulate identification and doubly robust representations for
+                    Banach-space-valued summaries. At the distribution level, we identify targets through the standard causal
+                    \(g\)-formula and derive stability-transfer bounds and plug-in consistency. We also place target-specific
+                    topological ignorability within the framework, clarifying when a covariate-standardized coarse effect can
+                    be identified without identifying the full interventional laws. Finally, we delimit the role of
+                    observational topology in causal discovery: it can assist diagnosis on restricted model classes but cannot
+                    by itself identify causal structure.
+                </p>
+                <div class="paper-meta">
+                    <span>arXiv:2607.28161 [stat.ME]</span>
+                    <span>Methodology (stat.ME) · Statistics Theory (math.ST) · Machine Learning (stat.ML)</span>
+                    <span>MSC 62D20, 62R40, 55N31, 62R20</span>
+                </div>
+                <p style="margin-top: 1.5rem;">
+                    <a href="https://doi.org/10.48550/arXiv.2607.28161" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="res_new_read">Read on arXiv</a>
+                </p>
+            </div>
+
+            <!-- ============ THESIS ============ -->
+            <h2 class="section-title" id="thesis" style="margin-top: 5rem;"><span class="title-accent">//</span> <span data-i18n="res_thesis_title">Master's Dissertation</span></h2>
+            <p class="section-subtitle" data-i18n="res_thesis_sub">Institute of Mathematical and Computer Sciences (ICMC), University of São Paulo &middot; defended 2025, ahead of schedule</p>
+
+            <div class="theme-card" style="margin-bottom: 2rem;">
+                <h3>Advancing Robust and Reliable Estimation of Heterogeneous Treatment Effects: Methodological Innovations and Critical Evaluations</h3>
+                <p style="margin-top: 0.75rem;" data-i18n="res_thesis_intro">
+                    Supervised by Prof. Francisco Louzada Neto. Roughly 180 pages setting out three separate methodological
+                    contributions to the estimation of heterogeneous treatment effects.
+                </p>
+            </div>
+
+            <div class="card-grid" style="margin-bottom: 5rem;">
+                <div class="theme-card">
+                    <span class="theme-kicker" data-i18n="res_thesis_c1_k">Contribution 1</span>
+                    <h3 data-i18n="res_thesis_c1_t">Ablation studies for nonparametric causal models</h3>
+                    <p data-i18n="res_thesis_c1_p">
+                        An empirical investigation showing that the propensity-score component of the Bayesian Causal Forest
+                        can be omitted without loss of performance, while cutting computational cost by roughly 21%. The result
+                        was re-tested at higher dimensionality, varied treatment-effect magnitudes, and varied sample sizes
+                        after an independent researcher challenged it. It held.
+                    </p>
+                </div>
+                <div class="theme-card">
+                    <span class="theme-kicker" data-i18n="res_thesis_c2_k">Contribution 2</span>
+                    <h3 data-i18n="res_thesis_c2_t">TISCA &mdash; Test-Informed Simulation Count Algorithm</h3>
+                    <p data-i18n="res_thesis_c2_p">
+                        A principled way to determine how many replications a simulation study actually needs in order to
+                        support the comparisons it draws, replacing the arbitrary round numbers the field tends to default to.
+                    </p>
+                </div>
+                <div class="theme-card">
+                    <span class="theme-kicker" data-i18n="res_thesis_c3_k">Contribution 3</span>
+                    <h3 data-i18n="res_thesis_c3_t">DiD-BCF &mdash; Difference-in-Differences Bayesian Causal Forest</h3>
+                    <p data-i18n="res_thesis_c3_p">
+                        A nonparametric estimator handling staggered adoption and treatment-effect heterogeneity in a single
+                        framework, recovering average, group-level, and conditional effects. Applied to U.S. minimum-wage
+                        policy, it uncovered conditional treatment effects that established benchmarks had missed.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ============ JOURNALS ============ -->
+            <h2 class="section-title" id="journals"><span class="title-accent">//</span> <span data-i18n="res_journals_title">Peer-Reviewed Journal Articles</span></h2>
+            <p class="section-subtitle" data-i18n="res_journals_sub">Newest first. Citation counts are from Google Scholar and change over time.</p>
+
+            <div class="publications-list" style="margin-bottom: 5rem;">
+                <div class="pub-item">
+                    <div class="pub-year">2025</div>
+                    <div class="pub-details">
+                        <h3>Enhancing Financial Forecasting: A Novel Multivariate Neural Network Approach for Realized Covariance Matrix Prediction Using RCM-NBEATSx</h3>
+                        <p class="pub-authors">H.G. Souto, A. Moradi</p>
+                        <p class="pub-journal">Financial Innovation, 11 (Springer)</p>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2025</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1007/s10614-025-10917-0" target="_blank" rel="noopener">Evaluating the Efficacy of NHITS for Forecasting Stock Realized Volatility: A Comparative Analysis with Established Models</a></h3>
+                        <p class="pub-authors">H.G. Souto</p>
+                        <p class="pub-journal">Computational Economics, 65(3) (Springer)</p>
+                        <span class="pub-citations">4 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1016/j.jfds.2024.100143" target="_blank" rel="noopener">Time-mixing and Feature-mixing Modelling for Realized Volatility Forecast: Evidence from the TSMixer Model</a></h3>
+                        <p class="pub-authors">H.G. Souto, S.K. Heuvel, F. Louzada Neto</p>
+                        <p class="pub-journal">The Journal of Finance and Data Science, 10</p>
+                        <span class="pub-citations">8 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1016/j.dajour.2024.100512" target="_blank" rel="noopener">A Generalization of the Topological Tail Dependence Theory: From Indices to Individual Stocks</a></h3>
+                        <p class="pub-authors">H.G. Souto, A. Moradi</p>
+                        <p class="pub-journal">Decision Analytics Journal, 12, 100512</p>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1016/j.eswa.2024.124851" target="_blank" rel="noopener">Charting New Avenues in Financial Forecasting with TimesNet: The Impact of Intraperiod and Interperiod Variations on Realized Volatility Prediction</a></h3>
+                        <p class="pub-authors">H.G. Souto</p>
+                        <p class="pub-journal">Expert Systems with Applications, 255</p>
+                        <span class="pub-citations">15 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1108/CFRI-01-2024-0032" target="_blank" rel="noopener">Can Transformers Transform Financial Forecasting?</a></h3>
+                        <p class="pub-authors">H.G. Souto, A. Moradi</p>
+                        <p class="pub-journal">China Finance Review International &mdash; Special Issue: Artificial Intelligence and Finance</p>
+                        <span class="pub-citations">27 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1007/s43621-024-00501-1" target="_blank" rel="noopener">EU Social Taxonomy for Sustainable Economic Activities: Exploring the Known and Navigating the Current Issues as Well as Future Research</a></h3>
+                        <p class="pub-authors">A. Moradi, R. Fatima, T. Groner, H.G. Souto</p>
+                        <p class="pub-journal">Discover Sustainability, 5, 276 (Springer)</p>
+                        <span class="pub-citations">6 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2023</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1016/j.eswa.2023.122802" target="_blank" rel="noopener">Introducing NBEATSx to Realized Volatility Forecasting</a></h3>
+                        <p class="pub-authors">H.G. Souto, A. Moradi</p>
+                        <p class="pub-journal">Expert Systems with Applications, 242</p>
+                        <span class="pub-citations">50 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2023</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1016/j.jfds.2023.100107" target="_blank" rel="noopener">Topological Tail Dependence: Evidence from Forecasting Realized Volatility</a></h3>
+                        <p class="pub-authors">H.G. Souto</p>
+                        <p class="pub-journal">The Journal of Finance and Data Science, 9, 100107</p>
+                        <span class="pub-citations">20 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2023</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.1016/j.dajour.2023.100369" target="_blank" rel="noopener">A Novel Loss Function for Neural Network Models Exploring Stock Realized Volatility Using Wasserstein Distance</a></h3>
+                        <p class="pub-authors">H.G. Souto, A. Moradi</p>
+                        <p class="pub-journal">Decision Analytics Journal, 10</p>
+                        <span class="pub-citations">19 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2023</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.18559/ebr.2023.2.737" target="_blank" rel="noopener">Forecasting Realized Volatility through Financial Turbulence and Neural Networks</a></h3>
+                        <p class="pub-authors">H.G. Souto, A. Moradi</p>
+                        <p class="pub-journal">Economics and Business Review, 9(2), 134&ndash;159</p>
+                        <span class="pub-citations">21 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2023</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.4236/jmf.2023.131007" target="_blank" rel="noopener">Time Series Forecasting Models for S&amp;P 500 Financial Turbulence</a></h3>
+                        <p class="pub-authors">H.G. Souto</p>
+                        <p class="pub-journal">Journal of Mathematical Finance, 13, 112&ndash;129</p>
+                        <span class="pub-citations">17 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2023</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.4236/jmf.2023.131005" target="_blank" rel="noopener">Distribution Analysis of S&amp;P 500 Financial Turbulence</a></h3>
+                        <p class="pub-authors">H.G. Souto</p>
+                        <p class="pub-journal">Journal of Mathematical Finance, 13, 67&ndash;88</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ SOFTWARE ============ -->
+            <h2 class="section-title" id="software"><span class="title-accent">//</span> <span data-i18n="res_software_title">Software &amp; Open Source</span></h2>
+            <p class="section-subtitle" data-i18n="res_software_sub">Every method that is worth using is worth shipping as code someone else can run.</p>
+
+            <div class="card-grid" style="margin-bottom: 5rem;">
+                <div class="software-card">
+                    <h3><a href="https://doi.org/10.1016/j.simpa.2024.100637" target="_blank" rel="noopener">FinTDA</a></h3>
+                    <p data-i18n="res_sw1">
+                        Python package for estimating market change through persistent homology diagrams. Turns an algebraic
+                        topology technique into a documented tool for detecting regime change in high-dimensional stock data.
+                    </p>
+                    <span class="software-venue">Souto, Baris, Heuvel &amp; Moradi &middot; Software Impacts, 20 (2024)</span>
+                </div>
+                <div class="software-card">
+                    <h3><a href="https://doi.org/10.1016/j.simpa.2024.100639" target="_blank" rel="noopener">Wasserstein Loss for Financial Deep Learning</a></h3>
+                    <p data-i18n="res_sw2">
+                        Reference implementation of a distribution-aware loss function for financial time-series neural
+                        networks, cited by researchers working well outside finance.
+                    </p>
+                    <span class="software-venue">Souto &amp; Moradi &middot; Software Impacts, 20 (2024)</span>
+                </div>
+                <div class="software-card">
+                    <h3><a href="https://doi.org/10.1016/j.simpa.2024.100613" target="_blank" rel="noopener">Yang &amp; Zhang Realized Volatility</a></h3>
+                    <p data-i18n="res_sw3">
+                        Automated Python estimation of the Yang &amp; Zhang realized-volatility estimator, removing a recurring
+                        source of hand-rolled implementation error in empirical finance.
+                    </p>
+                    <span class="software-venue">Souto &amp; Moradi &middot; Software Impacts, 19 (2024)</span>
+                </div>
+                <div class="software-card">
+                    <h3><a href="https://github.com/hugogobato" target="_blank" rel="noopener">Contributions to neuralforecast</a></h3>
+                    <p data-i18n="res_sw4">
+                        Open-source contributions to Nixtla's <code>neuralforecast</code> library, the framework behind much of
+                        the applied forecasting work in this list.
+                    </p>
+                    <span class="software-venue">GitHub &middot; hugogobato</span>
+                </div>
+            </div>
+
+            <!-- ============ PROCEEDINGS ============ -->
+            <h2 class="section-title" id="proceedings"><span class="title-accent">//</span> <span data-i18n="res_proc_title">Conference Proceedings &amp; Technical Reports</span></h2>
+
+            <div class="publications-list" style="margin-bottom: 5rem;">
+                <div class="pub-item pub-highlight">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.48550/arXiv.2410.21276" target="_blank" rel="noopener">GPT-4o System Card</a></h3>
+                        <p class="pub-authors">OpenAI (A. Hurst, A. Lerer, … H.G. Souto, et al.)</p>
+                        <p class="pub-journal" data-i18n="res_gpt4o_note">Contributed as a member of the OpenAI Red Teaming Network</p>
+                        <span class="pub-citations">5,061 citations</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2025</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.5753/stil.2025.37821" target="_blank" rel="noopener">AI-PAVE-Br: Leveraging Large Language Models for Enhanced Product Attribute Value Extraction through a Golden Set Approach</a></h3>
+                        <p class="pub-authors">M. Gazzola, H. Souto, S. Silva, J. Peixoto, F. Siqueira, A. Morais, C. Gomes</p>
+                        <p class="pub-journal">Anais do XVI Simpósio Brasileiro de Tecnologia da Informação e da Linguagem Humana (STIL), 149&ndash;160 &mdash; Honourable mention at BRACIS/STIL 2025</p>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3>Unraveling the ESG Reporting Landscape: A Comprehensive Analysis of Standards, Frameworks, and Impact on Firms</h3>
+                        <p class="pub-authors">A. Moradi, Á. Tóth-Pajor, H.G. Souto</p>
+                        <p class="pub-journal">43rd International Conference on Organizational Science Development</p>
+                        <span class="pub-citations">5 citations</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ PREPRINTS ============ -->
+            <h2 class="section-title" id="preprints"><span class="title-accent">//</span> <span data-i18n="res_pre_title">Preprints &amp; Working Papers</span></h2>
+            <p class="section-subtitle" data-i18n="res_pre_sub">Under review or in revision. Comments are genuinely welcome &mdash; several of these improved because a reader pushed back.</p>
+
+            <div class="publications-list">
+                <div class="pub-item pub-wip">
+                    <div class="pub-year">2026</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.48550/arXiv.2607.28161" target="_blank" rel="noopener">A Mathematical Framework for Topological Causal Data Analysis</a></h3>
+                        <p class="pub-authors">H.G. Souto, I. Diamantis</p>
+                        <p class="pub-journal">arXiv:2607.28161 [stat.ME]</p>
+                        <span class="pub-wip-badge">Work in Progress</span>
+                    </div>
+                </div>
+                <div class="pub-item pub-wip">
+                    <div class="pub-year">2025</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.48550/arXiv.2505.09706" target="_blank" rel="noopener">Forests for Differences: Robust Causal Inference Beyond Parametric DiD</a></h3>
+                        <p class="pub-authors">H.G. Souto, F. Louzada Neto</p>
+                        <p class="pub-journal">arXiv:2505.09706 &mdash; introduces DiD-BCF</p>
+                        <span class="pub-citations">2 citations</span>
+                        <span class="pub-wip-badge">Work in Progress</span>
+                    </div>
+                </div>
+                <div class="pub-item pub-wip">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.48550/arXiv.2409.05161" target="_blank" rel="noopener">Beyond Arbitrary Replications: A Principled Approach to Simulation Design in Causal Inference</a></h3>
+                        <p class="pub-authors">H.G. Souto, F. Louzada Neto</p>
+                        <p class="pub-journal">arXiv:2409.05161 &mdash; introduces TISCA</p>
+                        <span class="pub-wip-badge">Work in Progress</span>
+                    </div>
+                </div>
+                <div class="pub-item pub-wip">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://doi.org/10.48550/arXiv.2410.15560" target="_blank" rel="noopener">Ablation Studies for Novel Treatment Effect Estimation Models</a></h3>
+                        <p class="pub-authors">H.G. Souto, F. Louzada Neto</p>
+                        <p class="pub-journal">arXiv:2410.15560</p>
+                        <span class="pub-citations">3 citations</span>
+                        <span class="pub-wip-badge">Work in Progress</span>
+                    </div>
+                </div>
+                <div class="pub-item pub-wip">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-details">
+                        <h3><a href="https://arxiv.org/abs/2409.06593" target="_blank" rel="noopener">Advancing Causal Inference: A Nonparametric Approach to ATE and CATE Estimation with Continuous Treatments</a></h3>
+                        <p class="pub-authors">H.G. Souto, F. Louzada Neto</p>
+                        <p class="pub-journal">arXiv:2409.06593</p>
+                        <span class="pub-citations">4 citations</span>
+                        <span class="pub-wip-badge">Work in Progress</span>
+                    </div>
+                </div>
+                <div class="pub-item pub-wip">
+                    <div class="pub-year">2023</div>
+                    <div class="pub-details">
+                        <h3>Augmented HAR</h3>
+                        <p class="pub-authors">H.G. Souto, J. Blackmon, A. Moradi</p>
+                        <p class="pub-journal">SSRN Electronic Journal</p>
+                        <span class="pub-citations">10 citations</span>
+                        <span class="pub-wip-badge">Work in Progress</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="page-footer-band">
+      <div class="container">
+        <div class="page-footer-nav">
+            <a href="endorsements.html" class="btn btn-outline" data-i18n="pfn_end">What Others Say</a>
+            <a href="talks.html" class="btn btn-outline" data-i18n="pfn_talks">Talks &amp; Media</a>
+            <a href="service.html" class="btn btn-outline" data-i18n="pfn_service">Academic Service</a>
+            <a href="index.html" class="btn btn-outline" data-i18n="pfn_home">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer_text">&copy; 2025 Hugo Gobato Souto</p>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <img class="lightbox-img" id="lightbox-img" alt="">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <script src="assets/js/translations.js?v=1.1.0"></script>
+    <script src="assets/js/main.js?v=1.1.0"></script>
+</body>
+</html>

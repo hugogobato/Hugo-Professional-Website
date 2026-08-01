@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talks &amp; Media | Hugo Gobato Souto</title>
+    <meta name="description" content="Conference presentations, invited talks, guest lectures, podcast appearances, and press coverage of Hugo Gobato Souto's research.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css?v=1.1.0">
+    <link rel="stylesheet" href="assets/css/pages.css?v=1.1.0">
+</head>
+<body>
+    <canvas id="topology-canvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo"><span class="logo-node"></span>HGS</a>
+                <div class="lang-selector">
+                    <button class="lang-btn" id="lang-btn" aria-label="Select language">
+                        <span class="lang-current">EN</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lang-caret"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button data-lang="en" class="lang-opt active">EN</button>
+                        <button data-lang="pt" class="lang-opt">PT</button>
+                        <button data-lang="fr" class="lang-opt">FR</button>
+                        <button data-lang="nl" class="lang-opt">NL</button>
+                        <button data-lang="es" class="lang-opt">ES</button>
+                    </div>
+                </div>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="index.html#story" class="nav-link" data-i18n="nav_story">My Story</a></li>
+                <li><a href="research.html" class="nav-link" data-i18n="nav_research">Research</a></li>
+                <li><a href="endorsements.html" class="nav-link" data-i18n="nav_endorsements">Endorsements</a></li>
+                <li><a href="talks.html" class="nav-link current" data-i18n="nav_talks">Talks &amp; Media</a></li>
+                <li><a href="service.html" class="nav-link" data-i18n="nav_service">Service</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <p class="breadcrumb"><a href="index.html" data-i18n="crumb_home">Home</a> / <span data-i18n="nav_talks">Talks &amp; Media</span></p>
+            <h1><span class="title-accent">//</span> <span data-i18n="talks_title">Talks &amp; Media</span></h1>
+            <p class="page-lede" data-i18n="talks_lede">
+                Conference presentations across Europe and Brazil, invited lectures at universities in three countries,
+                and the podcasts and articles where the work has been discussed by other people.
+                <strong>I am available for guest lectures, seminars, and podcasts</strong> &mdash; in English, Portuguese, French, or Dutch.
+            </p>
+            <div class="page-jump">
+                <a href="#conferences" data-i18n="talks_jump_conf">Conference Presentations</a>
+                <a href="#invited" data-i18n="talks_jump_inv">Invited Talks &amp; Lectures</a>
+                <a href="#podcasts" data-i18n="talks_jump_pod">Podcasts</a>
+                <a href="#press" data-i18n="talks_jump_press">Press &amp; Coverage</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="fact-strip">
+                <div class="fact"><span class="fact-number">8</span><span class="fact-label" data-i18n="talks_fact_conf">Conference talks</span></div>
+                <div class="fact"><span class="fact-number">5</span><span class="fact-label" data-i18n="talks_fact_inv">Invited lectures</span></div>
+                <div class="fact"><span class="fact-number">3</span><span class="fact-label" data-i18n="talks_fact_pod">Podcast appearances</span></div>
+                <div class="fact"><span class="fact-number">4</span><span class="fact-label" data-i18n="talks_fact_lang">Presentation languages</span></div>
+            </div>
+
+            <!-- ============ CONFERENCES ============ -->
+            <h2 class="section-title" id="conferences"><span class="title-accent">//</span> <span data-i18n="talks_conf_title">Conference Presentations</span></h2>
+            <p class="section-subtitle" data-i18n="talks_conf_sub">Newest first. All presented in person unless noted.</p>
+
+            <div style="margin-bottom: 5rem;">
+                <div class="entry-card">
+                    <div class="entry-date">25 Feb 2026</div>
+                    <div class="entry-body">
+                        <h3>On the Applications of Nonparametric Bayesian Methods in Heterogeneous Treatment Effect Estimation</h3>
+                        <p class="entry-venue">XI Workshop on Probabilistic and Statistical Methods (WPSM 2026) &middot; Federal University of São Carlos, Brazil</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">12 Nov 2025</div>
+                    <div class="entry-body">
+                        <h3>Forests for Differences: Robust Causal Inference Beyond Parametric DiD</h3>
+                        <p class="entry-venue">Causal Data Science Meeting 2025 (CDSM25) &middot; Online &mdash; organised via Technical University of Munich</p>
+                        <p class="entry-note" data-i18n="talks_cdsm_note">Accepted through the conference review process; the paper introduces the DiD-BCF estimator.</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">10 Apr 2025</div>
+                    <div class="entry-body">
+                        <h3>Revisiting Model Evaluation in Treatment Effect Estimation: A Critical Appraisal</h3>
+                        <p class="entry-venue">European Causal Inference Meeting 2025 (EUROCIM) &middot; Ghent University, Belgium</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">14 Jun 2024</div>
+                    <div class="entry-body">
+                        <h3>Topological Tail Dependence: Evidence from Forecasting Realized Volatility</h3>
+                        <p class="entry-venue">SoFiE 2024 &middot; Pontifical Catholic University of Rio de Janeiro (PUC-Rio), Brazil</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">02 Nov 2023</div>
+                    <div class="entry-body">
+                        <h3>To What Extent Does ESG Impact Profitability Within the Airline Industry</h3>
+                        <p class="entry-venue">CIICE &middot; University of Barcelona, Spain</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">31 Aug 2023</div>
+                    <div class="entry-body">
+                        <h3>Application of Persistent Homology in Forecasting Realized Volatility</h3>
+                        <p class="entry-venue">ESOBE 2023 &middot; University of Glasgow, Scotland</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">07 Jul 2023</div>
+                    <div class="entry-body">
+                        <h3>NBEATSx Is All You Need for Realized Volatility Forecasting</h3>
+                        <p class="entry-venue">16th International Risk Management Conference &middot; University of Florence, Italy</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">13 Apr 2023</div>
+                    <div class="entry-body">
+                        <h3>Realized Volatility Predictability through Neural Networks and Financial Turbulence</h3>
+                        <p class="entry-venue">25th Dynamic Econometrics Conference &middot; Bayes Business School, London, United Kingdom</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ INVITED ============ -->
+            <h2 class="section-title" id="invited"><span class="title-accent">//</span> <span data-i18n="talks_inv_title">Invited Talks &amp; Guest Lectures</span></h2>
+            <p class="section-subtitle" data-i18n="talks_inv_sub">Invitations extended by the host institution.</p>
+
+            <div style="margin-bottom: 3rem;">
+                <div class="entry-card">
+                    <div class="entry-date">Fall 2027</div>
+                    <div class="entry-body">
+                        <h3>Agentic AI for academic and research work<span class="entry-tag entry-tag-upcoming" data-i18n="tag_upcoming">Upcoming</span></h3>
+                        <p class="entry-venue">Institute for Global Nutrition, University of California, Davis &middot; lab-group seminar (online)</p>
+                        <p class="entry-note" data-i18n="talks_ucdavis_note">On where agentic AI tools are genuinely useful in a research setting: literature review, data cleaning, analysis pipelines, and reproducible research.</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">2026/27</div>
+                    <div class="entry-body">
+                        <h3>Guest lecture on data science and the role of data in organisations<span class="entry-tag entry-tag-upcoming" data-i18n="tag_upcoming">Upcoming</span></h3>
+                        <p class="entry-venue">Amsterdam University of Applied Sciences (HvA) &middot; International Business programme</p>
+                        <p class="entry-note" data-i18n="talks_hva_note">Invited to return to a Dutch International Business faculty as a guest speaker, in the same programme I graduated from at HAN.</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">25 Jun 2026</div>
+                    <div class="entry-body">
+                        <h3>Seminar in the Introduction to Statistics and Data Science course<span class="entry-tag entry-tag-invited" data-i18n="tag_invited">Invited</span></h3>
+                        <p class="entry-venue">Federal University of São Carlos (UFSCar) &middot; Undergraduate Programme in Statistics</p>
+                        <p class="entry-note" data-i18n="talks_ufscar_note">Invited by the Coordination of the Undergraduate Programme in Statistics as part of its seminar series.</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">12 Dec 2025</div>
+                    <div class="entry-body">
+                        <h3>Gerando conhecimento na área financeira com dados e estatística<span class="entry-tag entry-tag-invited" data-i18n="tag_invited">Invited</span></h3>
+                        <p class="entry-venue">I Workshop de Estatística e Ciência de Dados Aplicadas a Finanças (WECDAF) &middot; Federal University of Bahia (UFBA), Salvador</p>
+                        <p class="entry-note" data-i18n="talks_wecdaf_note">
+                            Invited by Prof. Paulo Henrique Ferreira da Silva after he served as external examiner on my master's defence.
+                            On topological tail dependence in volatility forecasting and causal-inference methods in finance.
+                            <a href="https://www.youtube.com/watch?v=r10FeSUe5i4" target="_blank" rel="noopener">Watch the recording &rarr;</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">2023/24</div>
+                    <div class="entry-body">
+                        <h3>Co-teaching the Data Analytics course</h3>
+                        <p class="entry-venue">HAN University of Applied Sciences &middot; International Business faculty, Netherlands</p>
+                        <p class="entry-note" data-i18n="talks_han_note">Invited to co-teach the same Data Analytics course from which I had earlier been exempted on the basis of already-published research.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="zoomable" style="max-width: 520px; margin: 0 auto 5rem;">
+                <img src="assets/images/wecdaf-poster.jpg" alt="Programme poster for the I Workshop de Estatística e Ciência de Dados Aplicadas a Finanças at UFBA, December 2025" loading="lazy">
+                <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.6rem;" data-i18n="talks_poster_cap">WECDAF programme, UFBA &mdash; December 2025</p>
+            </div>
+
+            <!-- ============ PODCASTS ============ -->
+            <h2 class="section-title" id="podcasts"><span class="title-accent">//</span> <span data-i18n="talks_pod_title">Podcasts &amp; Interviews</span></h2>
+
+            <div class="card-grid" style="margin-bottom: 5rem;">
+                <a href="https://open.spotify.com/episode/5rgoxQIthkdqpcGpf3iMX9" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind">Podcast &middot; Portuguese</span>
+                    <h3>Cabeça de Lab</h3>
+                    <p data-i18n="talks_pod1">Luizalabs' engineering and data science podcast, on causal inference in large-scale e-commerce.</p>
+                    <span class="media-outlet">Spotify</span>
+                </a>
+                <a href="https://app.springcast.fm/17369/lstm-het-llm-ai-model-voor-iot" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind">Podcast &middot; Dutch</span>
+                    <h3>De IoT Gesprekken</h3>
+                    <p data-i18n="talks_pod2">On LSTM and language-model architectures applied to IoT data, recorded in Dutch.</p>
+                    <span class="media-outlet">Springcast</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=tBsvnM85zH4" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind">Interview &middot; English</span>
+                    <h3>Conversation with Pranav Patil</h3>
+                    <p data-i18n="talks_pod3">A long-form conversation on the research path, quantitative finance, and causal inference.</p>
+                    <span class="media-outlet">YouTube</span>
+                </a>
+            </div>
+
+            <!-- ============ PRESS ============ -->
+            <h2 class="section-title" id="press"><span class="title-accent">//</span> <span data-i18n="talks_press_title">Press &amp; Coverage</span></h2>
+            <p class="section-subtitle" data-i18n="talks_press_sub">Places where other people wrote about the work.</p>
+
+            <div class="card-grid">
+                <a href="https://www.diddigest.xyz/p/all-about-heterogenous-treatment" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind" data-i18n="talks_kind_blog">Research newsletter</span>
+                    <h3>DiD Digest &mdash; "Forests for Differences"</h3>
+                    <p data-i18n="talks_press1">A dedicated explainer of the DiD-BCF method for the difference-in-differences research community.</p>
+                    <span class="media-outlet">diddigest.xyz</span>
+                </a>
+                <a href="https://international-maths-challenge.com/new-theory-links-topology-and-finance/" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind" data-i18n="talks_kind_press">Press</span>
+                    <h3>"New theory links topology and finance"</h3>
+                    <p data-i18n="talks_press2">Coverage of the Topological Tail Dependence Theory for a general mathematics audience.</p>
+                    <span class="media-outlet">International Maths Challenge</span>
+                </a>
+                <a href="https://openai.com/index/gpt-4o-system-card/external-testers-acknowledgements/" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind" data-i18n="talks_kind_ack">Acknowledgement</span>
+                    <h3>OpenAI &mdash; GPT-4o external testers</h3>
+                    <p data-i18n="talks_press3">Named among the external red-teamers acknowledged for the GPT-4o System Card.</p>
+                    <span class="media-outlet">openai.com</span>
+                </a>
+                <a href="https://www.han.nl/artikelen/2023/08/winnaars-han-prijs-2023/" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind" data-i18n="talks_kind_uni">University news</span>
+                    <h3>Winners of the HAN Prijs 2023</h3>
+                    <p data-i18n="talks_press4">HAN University's announcement of the Student of the Year award.</p>
+                    <span class="media-outlet">han.nl</span>
+                </a>
+                <a href="https://www.linkedin.com/posts/luizalabs_inova%C3%A7%C3%A3o-que-inspira-temos-orgulho-em-activity-7381487454287065088-aM_h" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind" data-i18n="talks_kind_uni">Company announcement</span>
+                    <h3>Luizalabs &mdash; honourable mention at STIL 2025</h3>
+                    <p data-i18n="talks_press5">Luizalabs on the AI-PAVE-Br paper receiving an honourable mention at BRACIS/STIL 2025.</p>
+                    <span class="media-outlet">LinkedIn</span>
+                </a>
+                <a href="https://www.linkedin.com/posts/hugo-gobato-souto-669b17161_i-am-glad-to-share-that-i-was-employee-of-activity-7419447749575634944-1gdt" target="_blank" rel="noopener" class="media-card">
+                    <span class="media-kind" data-i18n="talks_kind_uni">Recognition</span>
+                    <h3>Luizalabs Employee of the Month &mdash; December 2025</h3>
+                    <p data-i18n="talks_press6">Monthly recognition within Luizalabs' data science organisation.</p>
+                    <span class="media-outlet">LinkedIn</span>
+                </a>
+            </div>
+
+            <div class="notice" style="margin-top: 4rem; margin-bottom: 0;">
+                <div class="notice-icon">🎤</div>
+                <div>
+                    <h3 data-i18n="talks_cta_title">Looking for a speaker?</h3>
+                    <p data-i18n="talks_cta_text">
+                        I give guest lectures and seminars on causal inference, topological data analysis, forecasting, and the
+                        practical use of agentic AI in research. Online or in person, in English, Portuguese, French, or Dutch.
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <a href="mailto:hugogobatosouto@gmail.com?subject=Speaking%20invitation" class="btn btn-primary" data-i18n="talks_cta_btn">Get in touch</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="page-footer-band">
+      <div class="container">
+        <div class="page-footer-nav">
+            <a href="research.html" class="btn btn-outline" data-i18n="pfn_research">Research &amp; Publications</a>
+            <a href="endorsements.html" class="btn btn-outline" data-i18n="pfn_end">What Others Say</a>
+            <a href="service.html" class="btn btn-outline" data-i18n="pfn_service">Academic Service</a>
+            <a href="index.html" class="btn btn-outline" data-i18n="pfn_home">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer_text">&copy; 2025 Hugo Gobato Souto</p>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <img class="lightbox-img" id="lightbox-img" alt="">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <script src="assets/js/translations.js?v=1.1.0"></script>
+    <script src="assets/js/main.js?v=1.1.0"></script>
+</body>
+</html>

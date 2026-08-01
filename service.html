@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Service &amp; Teaching | Hugo Gobato Souto</title>
+    <meta name="description" content="Thesis committees, peer review, teaching, advisory work, awards and scholarships, and community service of Hugo Gobato Souto.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css?v=1.1.0">
+    <link rel="stylesheet" href="assets/css/pages.css?v=1.1.0">
+</head>
+<body>
+    <canvas id="topology-canvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo"><span class="logo-node"></span>HGS</a>
+                <div class="lang-selector">
+                    <button class="lang-btn" id="lang-btn" aria-label="Select language">
+                        <span class="lang-current">EN</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lang-caret"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button data-lang="en" class="lang-opt active">EN</button>
+                        <button data-lang="pt" class="lang-opt">PT</button>
+                        <button data-lang="fr" class="lang-opt">FR</button>
+                        <button data-lang="nl" class="lang-opt">NL</button>
+                        <button data-lang="es" class="lang-opt">ES</button>
+                    </div>
+                </div>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="index.html#story" class="nav-link" data-i18n="nav_story">My Story</a></li>
+                <li><a href="research.html" class="nav-link" data-i18n="nav_research">Research</a></li>
+                <li><a href="endorsements.html" class="nav-link" data-i18n="nav_endorsements">Endorsements</a></li>
+                <li><a href="talks.html" class="nav-link" data-i18n="nav_talks">Talks &amp; Media</a></li>
+                <li><a href="service.html" class="nav-link current" data-i18n="nav_service">Service</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <p class="breadcrumb"><a href="index.html" data-i18n="crumb_home">Home</a> / <span data-i18n="nav_service">Service</span></p>
+            <h1><span class="title-accent">//</span> <span data-i18n="srv_title">Academic Service &amp; Teaching</span></h1>
+            <p class="page-lede" data-i18n="srv_lede">
+                The part of the record that does not show up in a citation count: examining other people's theses, reviewing
+                other people's papers, teaching, and the training that got me here. Most visitors do not need this page.
+                <strong>Academics and hiring committees usually do.</strong>
+            </p>
+            <div class="page-jump">
+                <a href="#committees" data-i18n="srv_jump_com">Thesis Committees</a>
+                <a href="#review" data-i18n="srv_jump_rev">Peer Review</a>
+                <a href="#teaching" data-i18n="srv_jump_tea">Teaching</a>
+                <a href="#advisory" data-i18n="srv_jump_adv">Advisory Work</a>
+                <a href="#awards" data-i18n="srv_jump_awa">Awards &amp; Scholarships</a>
+                <a href="#training" data-i18n="srv_jump_tra">Certified Training</a>
+                <a href="#community" data-i18n="srv_jump_com2">Community</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+
+            <!-- ============ COMMITTEES ============ -->
+            <h2 class="section-title" id="committees"><span class="title-accent">//</span> <span data-i18n="srv_com_title">Thesis Examination Committees</span></h2>
+            <p class="section-subtitle" data-i18n="srv_com_sub">
+                Served on three undergraduate final-project (TCC) examining committees at two Brazilian federal and state
+                universities in 2026, in Statistics and Data Science programmes.
+            </p>
+
+            <div style="margin-bottom: 5rem;">
+                <div class="entry-card">
+                    <div class="entry-date">17 Jul 2026</div>
+                    <div class="entry-body">
+                        <h3>Cópulas em séries temporais: da teoria à implementação em R</h3>
+                        <p class="entry-venue">Aullus Galassi Marques Rego &middot; B.Sc. Statistics, Institute of Mathematics and Statistics, Federal University of Bahia (UFBA)</p>
+                        <p class="entry-note" data-i18n="srv_com3_note">Trabalho de Conclusão de Curso II, semester 2026.1.</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">24 Jun 2026</div>
+                    <div class="entry-body">
+                        <h3>Modelagem de Dados e Arquitetura em Nuvem: Soluções de Business Intelligence no Setor de Ativos Ambientais</h3>
+                        <p class="entry-venue">Manuela Guedes Wanderley &middot; B.Sc. Statistics and Data Science, ICMC, University of São Paulo</p>
+                        <p class="entry-note" data-i18n="srv_com2_note">Committee: Mariana Cúri, Igor Queiroz Mieli Medici, Hugo Gobato Souto. Data engineering and BI for carbon-asset accounting; the examination focused on uncertainty propagation in IPCC-based emissions estimates and on the statistical consequences of imputing missing field variables.</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">22 Jun 2026</div>
+                    <div class="entry-body">
+                        <h3>Desenvolvimento de Software para Identificação Automática de Linhas em Espectroscopia LIBS utilizando a Metodologia ALIAS</h3>
+                        <p class="entry-venue">Ayrton Ramos Munareto &middot; B.Sc. Statistics and Data Science, ICMC, University of São Paulo</p>
+                        <p class="entry-note" data-i18n="srv_com1_note">Committee: Mariana Cúri, Paulino Ribeiro Villas Boas, Hugo Gobato Souto. Signal processing and 1D-CNN modelling of LIBS spectroscopy data at Embrapa; the examination focused on evaluation metrics, baseline-correction benchmarking, and stratified splits to avoid data leakage.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ PEER REVIEW ============ -->
+            <h2 class="section-title" id="review"><span class="title-accent">//</span> <span data-i18n="srv_rev_title">Peer Review</span></h2>
+
+            <div class="card-grid" style="margin-bottom: 5rem;">
+                <div class="service-card">
+                    <h3>Founding Peer Reviewer</h3>
+                    <p class="service-org">Iterra &middot; since June 2026</p>
+                    <p data-i18n="srv_rev1">
+                        Invited into the founding reviewer cohort of Iterra, a platform building structured, multi-angle
+                        scientific peer review with ORCID-linked reviewer identity. The cohort spans more than 20 scientific
+                        disciplines across five continents; the designation is permanent on the reviewer profile.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3 data-i18n="srv_rev2_t">Open to reviewing</h3>
+                    <p class="service-org" data-i18n="srv_rev2_o">Causal inference · forecasting · topological data analysis</p>
+                    <p data-i18n="srv_rev2">
+                        If you are an editor or programme chair looking for a reviewer in treatment-effect estimation,
+                        realized-volatility forecasting, applied machine learning, or topological data analysis,
+                        <a href="mailto:hugogobatosouto@gmail.com?subject=Review%20invitation">write to me</a>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ============ TEACHING ============ -->
+            <h2 class="section-title" id="teaching"><span class="title-accent">//</span> <span data-i18n="srv_tea_title">Teaching</span></h2>
+
+            <div style="margin-bottom: 5rem;">
+                <div class="entry-card">
+                    <div class="entry-date">2023&ndash;24</div>
+                    <div class="entry-body">
+                        <h3>Research &amp; Teaching Assistant, International Business faculty</h3>
+                        <p class="entry-venue">HAN University of Applied Sciences, Netherlands</p>
+                        <p class="entry-note" data-i18n="srv_tea1">
+                            Research on novel neural networks and on sustainability in business and finance, alongside teaching
+                            duties. Invited to co-teach the Data Analytics course &mdash; the same course from which I had been
+                            partly exempted as a student on the basis of already-published research.
+                        </p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">2020&ndash;22</div>
+                    <div class="entry-body">
+                        <h3>Language Teacher &mdash; French, English, Dutch, Portuguese</h3>
+                        <p class="entry-venue">Volksuniversiteit Zwolle and private tuition, Netherlands</p>
+                        <p class="entry-note" data-i18n="srv_tea2">
+                            Between 30 and 65 one-hour lessons per week, taught alongside a full-time bachelor's degree.
+                            Two of the four languages I taught (Dutch and French) I had taught myself to professional fluency
+                            in the preceding two years.
+                        </p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">2026</div>
+                    <div class="entry-body">
+                        <h3>Guest seminars in undergraduate Statistics programmes</h3>
+                        <p class="entry-venue">Federal University of São Carlos (UFSCar) &middot; Federal University of Bahia (UFBA)</p>
+                        <p class="entry-note" data-i18n="srv_tea3">
+                            See <a href="talks.html#invited">Talks &amp; Media</a> for the full list of invited lectures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ ADVISORY ============ -->
+            <h2 class="section-title" id="advisory"><span class="title-accent">//</span> <span data-i18n="srv_adv_title">Advisory &amp; Consulting</span></h2>
+
+            <div class="card-grid" style="margin-bottom: 5rem;">
+                <div class="service-card">
+                    <h3 data-i18n="srv_adv1_t">Specialised technical consultant</h3>
+                    <p class="service-org">Instituto MultiSaberes, São Paulo &middot; 2026</p>
+                    <p data-i18n="srv_adv1">
+                        Technical consultant on a research and innovation proposal submitted to FAPESP's PIPE Technological
+                        Journey Programme (Health, Phase 1): a pipeline for automatic recognition and computational analysis of
+                        children's oral reading in Brazilian Portuguese, aimed at supporting assessment of persistent reading
+                        difficulties. My role covered model selection, dataset preparation, fine-tuning strategy, evaluation
+                        metrics, and the governance of children's voice data.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3 data-i18n="srv_adv2_t">Red Teaming Network researcher</h3>
+                    <p class="service-org">OpenAI &middot; Nov 2023 &ndash; Jul 2025</p>
+                    <p data-i18n="srv_adv2">
+                        External safety evaluation of frontier models, contributing to the GPT-4o System Card and acknowledged
+                        among the external testers.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ============ AWARDS ============ -->
+            <h2 class="section-title" id="awards"><span class="title-accent">//</span> <span data-i18n="srv_awa_title">Awards, Honours &amp; Scholarships</span></h2>
+            <p class="section-subtitle" data-i18n="srv_awa_sub">With dates and awarding bodies, for anyone who needs to verify them.</p>
+
+            <div style="margin-bottom: 5rem;">
+                <div class="entry-card">
+                    <div class="entry-date">01 Jul 2024</div>
+                    <div class="entry-body">
+                        <h3>FAPESP Master's Scholarship</h3>
+                        <p class="entry-venue">São Paulo Research Foundation (FAPESP), Brazil &middot; process 2024/06274-0</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">01 May 2024</div>
+                    <div class="entry-body">
+                        <h3>CAPES Master's Scholarship</h3>
+                        <p class="entry-venue">CAPES, Ministry of Education, Brazil &middot; process 88887.949149/2024-00</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">03 Jul 2023</div>
+                    <div class="entry-body">
+                        <h3>HAN Prize &mdash; Best Bachelor Thesis of the Year</h3>
+                        <p class="entry-venue">HAN University of Applied Sciences, Netherlands</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">20 Jun 2023</div>
+                    <div class="entry-body">
+                        <h3>HAN Prijs &mdash; Student of the Year 2023</h3>
+                        <p class="entry-venue">HAN University of Applied Sciences, Netherlands &middot; <a href="https://www.han.nl/artikelen/2023/08/winnaars-han-prijs-2023/" target="_blank" rel="noopener">announcement</a></p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">16 Jun 2023</div>
+                    <div class="entry-body">
+                        <h3>Distinguished Nomination &mdash; ECHO Award 2023</h3>
+                        <p class="entry-venue">ECHO, Netherlands</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">29 Oct 2019</div>
+                    <div class="entry-body">
+                        <h3>HAN Excellence Scholarship &amp; Holland Scholarship</h3>
+                        <p class="entry-venue">HAN University of Applied Sciences and the Holland Scholarship Programme, Netherlands</p>
+                        <p class="entry-note" data-i18n="srv_awa_holland">The two scholarships that made it financially possible to return to the Netherlands and start the degree.</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">Dec 2025</div>
+                    <div class="entry-body">
+                        <h3>Employee of the Month</h3>
+                        <p class="entry-venue">Luizalabs (Magazine Luiza), Brazil</p>
+                    </div>
+                </div>
+                <div class="entry-card">
+                    <div class="entry-date">Oct 2025</div>
+                    <div class="entry-body">
+                        <h3>Honourable mention &mdash; AI-PAVE-Br</h3>
+                        <p class="entry-venue">XVI Brazilian Symposium on Information and Human Language Technology (STIL), BRACIS 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TRAINING ============ -->
+            <h2 class="section-title" id="training"><span class="title-accent">//</span> <span data-i18n="srv_tra_title">Certified Training</span></h2>
+            <p class="section-subtitle" data-i18n="srv_tra_sub">
+                I came to advanced mathematics without formal training in it. This is the paper trail of how that gap was
+                closed, mostly in a single intense stretch between October 2022 and January 2023, alongside a full-time job
+                and a full-time degree. There were also more than 25 further online courses taken without certification.
+            </p>
+
+            <div class="card-grid">
+                <div class="service-card">
+                    <h3>Financial Engineering and Risk Management</h3>
+                    <p class="service-org">Columbia University (Coursera specialization) &middot; Nov 2022 &ndash; Jan 2023</p>
+                    <p data-i18n="srv_tra1">
+                        Introduction to Financial Engineering and Risk Management · Term-Structure and Credit Derivatives ·
+                        Optimization Methods in Asset Management · Advanced Topics in Derivative Pricing ·
+                        Computational Methods in Pricing and Model Calibration.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>Advanced Bayesian Statistics</h3>
+                    <p class="service-org">University of California, Santa Cruz (Coursera specialization) &middot; Nov 2022 &ndash; Jan 2023</p>
+                    <p data-i18n="srv_tra2">
+                        Bayesian Statistics: From Concept to Data Analysis (with honors) · Techniques and Models (with honors) ·
+                        Mixture Models (with honors) · Time Series Analysis.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>Mathematics for Engineers</h3>
+                    <p class="service-org">The Hong Kong University of Science and Technology (Coursera specialization) &middot; Oct &ndash; Nov 2022</p>
+                    <p data-i18n="srv_tra3">
+                        Matrix Algebra for Engineers · Vector Calculus for Engineers · Differential Equations for Engineers ·
+                        Numerical Methods for Engineers · Mathematics for Engineers: The Capstone Course.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>ESG Portfolio Management &amp; Mathematical Finance</h3>
+                    <p class="service-org">ICHEC Brussels School of Management, Belgium &middot; Feb &ndash; Jul 2022</p>
+                    <p data-i18n="srv_tra4">
+                        Exchange semester taken during the bachelor's degree.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ============ COMMUNITY ============ -->
+            <h2 class="section-title" id="community" style="margin-top: 5rem;"><span class="title-accent">//</span> <span data-i18n="srv_com2_title">Community Work</span></h2>
+
+            <div class="social-card">
+                <h3 data-i18n="community_role">Community Worker</h3>
+                <p class="social-org" data-i18n="community_org">Emmaus Church, Dieren, The Netherlands &middot; Jan 2020 &mdash; Feb 2024</p>
+                <p data-i18n="community_desc">Participated in social projects for the reintegration of people facing financial and legal challenges, assisted elderly community members, and organized community-bonding events.</p>
+                <div class="social-image">
+                    <img src="assets/images/emmaus-community.jpg" alt="Emmaus Church in Dieren, The Netherlands" loading="lazy">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="page-footer-band">
+      <div class="container">
+        <div class="page-footer-nav">
+            <a href="research.html" class="btn btn-outline" data-i18n="pfn_research">Research &amp; Publications</a>
+            <a href="endorsements.html" class="btn btn-outline" data-i18n="pfn_end">What Others Say</a>
+            <a href="talks.html" class="btn btn-outline" data-i18n="pfn_talks">Talks &amp; Media</a>
+            <a href="index.html" class="btn btn-outline" data-i18n="pfn_home">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer_text">&copy; 2025 Hugo Gobato Souto</p>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <img class="lightbox-img" id="lightbox-img" alt="">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <script src="assets/js/translations.js?v=1.1.0"></script>
+    <script src="assets/js/main.js?v=1.1.0"></script>
+</body>
+</html>

@@ -332,25 +332,29 @@
 
 // ===== Navbar scroll effect =====
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 10);
-});
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 10);
+    });
+}
 
 // ===== Mobile navigation toggle =====
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 
-navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
-});
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
 
 // ===== Active nav link on scroll =====
 const sections = document.querySelectorAll('section[id]');
@@ -468,6 +472,7 @@ window.addEventListener('scroll', updateActiveNav);
     function animateCounters() {
         if (counted) return;
         const hero = document.getElementById('hero');
+        if (!hero || !counters.length) return;
         const rect = hero.getBoundingClientRect();
         if (rect.top < window.innerHeight) {
             counted = true;
@@ -498,7 +503,7 @@ window.addEventListener('scroll', updateActiveNav);
 // ===== Scroll-triggered fade-in animations =====
 (function () {
     const elements = document.querySelectorAll(
-        '.timeline-item, .edu-card, .pub-item, .award-card, .conf-card, .skill-category, .social-card, .detail-card, .story-chapter, .counterfactual-container, .tda-insight, .causal-rl-insight'
+        '.timeline-item, .edu-card, .pub-item, .award-card, .conf-card, .skill-category, .social-card, .detail-card, .story-chapter, .counterfactual-container, .tda-insight, .causal-rl-insight, .quote-card, .explore-card, .theme-card, .entry-card, .media-card, .service-card, .software-card'
     );
 
     elements.forEach(el => el.classList.add('fade-in'));
@@ -579,7 +584,7 @@ window.addEventListener('scroll', updateActiveNav);
     if (!lightbox) return;
 
     // Clickable images
-    document.querySelectorAll('.story-img img, .award-image img, .conf-image img, .social-image img').forEach(img => {
+    document.querySelectorAll('.story-img img, .award-image img, .conf-image img, .social-image img, .zoomable img').forEach(img => {
         img.style.cursor = 'pointer';
         img.addEventListener('click', () => {
             lightboxImg.src = img.src;
