@@ -389,31 +389,31 @@ window.addEventListener('scroll', updateActiveNav);
             'Principal Causal AI Research Scientist @ Dell',
             'Researcher in Causal Inference & Agentic AI',
             'Former OpenAI Red Teaming Network Researcher',
-            '20+ published papers | 5,400+ citations',
+            '20+ published papers | 295 citations',
         ],
         pt: [
             'Principal Causal AI Research Scientist @ Dell',
             'Pesquisador em Causal Inference & Agentic AI',
             'Ex-Pesquisador da OpenAI Red Teaming Network',
-            '20+ artigos publicados | 5.400+ citações',
+            '20+ artigos publicados | 295 citações',
         ],
         fr: [
             'Principal Causal AI Research Scientist @ Dell',
             'Chercheur en Causal Inference & Agentic AI',
             'Ancien Chercheur de l\'OpenAI Red Teaming Network',
-            '20+ articles publiés | 5 400+ citations',
+            '20+ articles publiés | 295 citations',
         ],
         nl: [
             'Principal Causal AI Research Scientist @ Dell',
             'Onderzoeker in Causal Inference & Agentic AI',
             'Voormalig OpenAI Red Teaming Network Onderzoeker',
-            '20+ gepubliceerde papers | 5.400+ citaties',
+            '20+ gepubliceerde papers | 295 citaties',
         ],
         es: [
             'Principal Causal AI Research Scientist @ Dell',
             'Investigador en Causal Inference & Agentic AI',
             'Ex-Investigador de OpenAI Red Teaming Network',
-            '20+ artículos publicados | 5.400+ citas',
+            '20+ artículos publicados | 295 citas',
         ]
     };
 
