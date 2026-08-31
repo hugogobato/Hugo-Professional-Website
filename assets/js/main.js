@@ -923,6 +923,7 @@ window.addEventListener('scroll', updateActiveNav);
             const q = query.toLowerCase();
             
             const matches = [
+                { keys: ['book', 'meeting', 'schedule', 'appointment', 'consultation', 'calendar', 'agendar', 'reservar', 'rendez', 'afspraak', 'cita', 'consult'], key: 'kb_booking' },
                 { keys: ['causal'], key: 'kb_causal' },
                 { keys: ['topolog', 'homolog', 'tda'], key: 'kb_topology' },
                 { keys: ['agentic', 'rl', 'reinforcement', 'inteligência agêntica'], key: 'kb_agentic' },
@@ -942,7 +943,11 @@ window.addEventListener('scroll', updateActiveNav);
                 }
             }
             
-            lastMsg.textContent = response;
+            if (response.includes('<a ')) {
+                lastMsg.innerHTML = response;
+            } else {
+                lastMsg.textContent = response;
+            }
         }, 1000);
     }
 
