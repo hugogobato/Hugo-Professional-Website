@@ -1,0 +1,192 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+\definecolor{accent}{HTML}{1B4965}
+\definecolor{muted}{HTML}{4A5568}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=accent,
+    linkcolor=accent
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\titleformat{\section}
+  {\large\bfseries\color{accent}\uppercase}
+  {}
+  {0em}
+  {}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+
+\setlist[itemize]{leftmargin=1.2em, itemsep=2pt, topsep=2pt, parsep=0pt}
+
+\newcommand{\cvitem}[2]{\textbf{#1} \hfill {\small\color{muted}#2}\\}
+
+\begin{document}
+
+% ==================== HEADER ====================
+\begin{center}
+    {\LARGE\bfseries Hugo Gobato Souto}\\[4pt]
+    {\small
+        \href{mailto:hugogobatosouto@gmail.com}{hugogobatosouto@gmail.com} $\;\cdot\;$
+        +55 16 99794-7444 $\;\cdot\;$
+        \href{https://hugogobatosouto.github.io/}{Personal Website} $\;\cdot\;$
+        \href{https://www.linkedin.com/in/hugo-gobato-souto/}{LinkedIn} $\;\cdot\;$
+        \href{https://scholar.google.com/citations?user=YOUR_ID}{Google Scholar} (Citations: 328, h-index: 10, i10-index: 11)
+    }
+\end{center}
+
+% ==================== EDUCATION ====================
+\section{Education}
+\begin{itemize}
+    \item \cvitem{University of S\~ao Paulo (USP) \& Federal University of S\~ao Carlos (UFSCar), Brazil}{Mar 2024 -- Sep 2025}
+    Double Degree Master's in Statistics. (Completed ahead of the March 2026 schedule).
+    \item \cvitem{HAN University of Applied Sciences, The Netherlands}{Feb 2020 -- Feb 2024}
+    B.Sc. in International Business, specialized in Finance (\textit{Cum laude}, GPA: 8.85/10).
+    \item \cvitem{ICHEC Brussels Management School, Belgium}{Feb 2022 -- Jul 2022}
+    Exchange programme: ESG Portfolio Management and Mathematical Finance.
+    \ifshortcv\else
+    \item \cvitem{Columbia University, USA (Online)}{Nov 2022 -- Jan 2023}
+    Financial Engineering and Risk Management Specialization.
+    \item \cvitem{University of California, USA (Online)}{Nov 2022 -- Jan 2023}
+    Advanced Bayesian Statistics.
+    \item \cvitem{The Hong Kong University of Science and Technology, Hong Kong (Online)}{Oct 2022 -- Nov 2022}
+    Mathematics for Engineers Specialization.
+    \item Over 25 additional non-certified online academic courses.
+    \fi
+\end{itemize}
+
+% ==================== PROFESSIONAL EXPERIENCE ====================
+\section{Professional Experience}
+\begin{itemize}
+    \item \cvitem{Principal Causal AI Research Scientist --- Dell Technologies}{Feb 2026 -- Present}
+    Coordinating research on the synergies of Agentic AI, Causal Inference, and Causal Reinforcement Learning.
+    \item \cvitem{Founding Peer Reviewer --- Iterra}{Jun 2026 -- Aug 2026}
+    Conducted expert evaluations and co-designed evaluation rubrics and incentive structures for a version-controlled scientific research workflow platform.
+    \item \cvitem{Team-Leading Causal Data Scientist --- Luizalabs (Magazine Luiza)}{Feb 2025 -- Feb 2026}
+    Coordinated e-commerce experimentation and extracted business value using causal inference.
+    \item \cvitem{Researcher --- OpenAI Red Teaming Network}{Nov 2023 -- Jul 2025}
+    Evaluated and improved the safety and effectiveness of OpenAI's models (acknowledged in the GPT-4o System Card).
+    \item \cvitem{Research and Teaching Assistant --- HAN University of Applied Sciences, The Netherlands}{Jul 2023 -- Jan 2024}
+    Focused on novel neural networks and sustainability in business and finance; co-taught Data Analytics.
+    \item \cvitem{Project Financial Analyst --- BASF Nederland, The Netherlands}{Aug 2022 -- Jul 2023}
+    Managed and mitigated financial risks for the Hollandse Kust Zuid offshore wind park using statistical and stochastic models.
+    \ifshortcv\else
+    \item \cvitem{Language Teacher (French, English, Dutch, Portuguese) --- Volksuniversiteit Zwolle, The Netherlands}{Aug 2020 -- Aug 2022}
+    \fi
+\end{itemize}
+
+% ==================== PUBLISHED RESEARCH ====================
+\section{\ifshortcv Selected Published Research\else Published Research\fi}
+\begin{itemize}
+    \item Souto, H. G., \& Louzada Neto, F. (2026). Ablation Studies for Novel Treatment Effect Estimation Models. \textit{Anais do XXIII ENIAC}, 181--192. \href{https://doi.org/10.5753/eniac.2026.29736}{doi:10.5753/eniac.2026.29736}
+    \item Souto, H. G. (2026). Contributed Discussion on ``Dependent Dirichlet Processes'' by Steven N. MacEachern. \textit{Bayesian Analysis}, 58--59. \href{https://doi.org/10.1214/26-BA1610}{doi:10.1214/26-BA1610}
+    \item Gazzola, M., Souto, H., Silva, S., Peixoto, J., Siqueira, F., Morais, A., \& Gomes, C. (2025). AI-PAVE-Br: Leveraging Large Language Models for Enhanced Product Attribute Value Extraction through a Golden Set Approach. \textit{Anais do XVI STIL}, 149--160. \href{https://doi.org/10.5753/stil.2025.37821}{doi:10.5753/stil.2025.37821}
+    \item Souto, H. G., \& Moradi, A. (2025). Enhancing Financial Forecasting: A Novel Multivariate Neural Network Approach for Realized Covariance Matrix Prediction Using RCM-NBEATSx. \textit{Financial Innovation}, 11. \href{https://doi.org/10.1186/s40854-025-00816-6}{doi:10.1186/s40854-025-00816-6}
+    \item Souto, H. G. (2025). Evaluating the Efficacy of NHITS for Forecasting Stock Realized Volatility: A Comparative Analysis with Established Models. \textit{Computational Economics}, 65(3). \href{https://doi.org/10.1007/s10614-025-10917-0}{doi:10.1007/s10614-025-10917-0}
+    \item OpenAI (2024). GPT-4o System Card (External Red-Teamer Acknowledgment). \textit{OpenAI}. \href{https://doi.org/10.48550/arXiv.2410.21276}{arXiv:2410.21276}
+    \item Souto, H. G., Heuvel, S. K., \& Louzada, F. (2024). Time-mixing and feature-mixing modelling for realized volatility forecast: Evidence from TSMixer model. \textit{The Journal of Finance and Data Science}, 10. \href{https://doi.org/10.1016/j.jfds.2024.100143}{doi:10.1016/j.jfds.2024.100143}
+    \item Souto, H. G., \& Moradi, A. (2024). A generalization of the Topological Tail Dependence theory: From indices to individual stocks. \textit{Decision Analytics Journal}, 12, 100512. \href{https://doi.org/10.1016/j.dajour.2024.100512}{doi:10.1016/j.dajour.2024.100512}
+    \ifshortcv
+    \item \textit{Full list of 19+ peer-reviewed publications available in the Complete CV and on Google Scholar.}
+    \else
+    \item Moradi, A., Fatima, R., Groner, T., \& Souto, H. G. (2024). EU social taxonomy for sustainable economic activities: exploring the known and navigating the current issues as well as future research. \textit{Discover Sustainability}, 5, 276. \href{https://doi.org/10.1007/s43621-024-00501-1}{doi:10.1007/s43621-024-00501-1}
+    \item Souto, H. G. (2024). Charting new avenues in financial forecasting with TimesNet: The impact of intraperiod and interperiod variations on realized volatility prediction. \textit{Expert Systems with Applications}, 255. \href{https://doi.org/10.1016/j.eswa.2024.124851}{doi:10.1016/j.eswa.2024.124851}
+    \item Souto, H. G., \& Moradi, A. (2024). Can Transformers Transform Financial Forecasting? \textit{China Finance Review International} (Special Issue). \href{https://doi.org/10.1108/CFRI-01-2024-0032}{doi:10.1108/CFRI-01-2024-0032}
+    \item Souto, H. G., Baris, I., Heuvel, S. K., \& Moradi, A. (2024). FinTDA: Python package for estimating market change through persistent homology diagrams. \textit{Software Impacts}, 20. \href{https://doi.org/10.1016/j.simpa.2024.100637}{doi:10.1016/j.simpa.2024.100637}
+    \item Souto, H. G., \& Moradi, A. (2024). Wasserstein distance loss function for financial time series deep learning. \textit{Software Impacts}, 20. \href{https://doi.org/10.1016/j.simpa.2024.100639}{doi:10.1016/j.simpa.2024.100639}
+    \item Souto, H. G., \& Moradi, A. (2024). Yang \& Zhang's realized volatility: Automated estimation in Python. \textit{Software Impacts}, 19. \href{https://doi.org/10.1016/j.simpa.2024.100613}{doi:10.1016/j.simpa.2024.100613}
+    \item Souto, H. G., \& Moradi, A. (2023). Introducing NBEATSx to Realized Volatility Forecasting. \textit{Expert Systems with Applications}, 242. \href{https://doi.org/10.1016/j.eswa.2023.122802}{doi:10.1016/j.eswa.2023.122802}
+    \item Souto, H. G., \& Moradi, A. (2023). A novel loss function for neural network models exploring stock realized volatility using Wasserstein Distance. \textit{Decision Analytics Journal}, 10. \href{https://doi.org/10.1016/j.dajour.2023.100369}{doi:10.1016/j.dajour.2023.100369}
+    \item Souto, H. G. (2023). Topological Tail Dependence: Evidence from Forecasting Realized Volatility. \textit{The Journal of Finance and Data Science}, 9. \href{https://doi.org/10.1016/j.jfds.2023.100107}{doi:10.1016/j.jfds.2023.100107}
+    \item Souto, H. G., \& Moradi, A. (2023). Forecasting Realized Volatility through Financial Turbulence and Neural Networks. \textit{Economics and Business Review}, 9(2), 134--159. \href{https://doi.org/10.18559/ebr.2023.2.737}{doi:10.18559/ebr.2023.2.737}
+    \item Souto, H. G. (2023). Time Series Forecasting Models for S\&P 500 Financial Turbulence. \textit{Journal of Mathematical Finance}, 13, 112--129. \href{https://doi.org/10.4236/jmf.2023.131007}{doi:10.4236/jmf.2023.131007}
+    \item Souto, H. G. (2023). Distribution Analysis of S\&P 500 Financial Turbulence. \textit{Journal of Mathematical Finance}, 13, 67--88. \href{https://doi.org/10.4236/jmf.2023.131005}{doi:10.4236/jmf.2023.131005}
+    \fi
+\end{itemize}
+
+% ==================== WORK IN PROGRESS ====================
+\section{Work-in-Progress \& Preprints}
+\begin{itemize}
+    \item Souto, H. G., Wang, E., \& Shuryak, I. (2026). Bayesian Causal Forests for Zero-Inflated Continuous Outcomes. \textit{arXiv}. \href{https://arxiv.org/abs/2610.18889}{arXiv:2610.18889}
+    \item Souto, H. G. (2026). Certified Winding Residues for Sparse Circular Data. \textit{Research Square}. \href{https://doi.org/10.21203/rs.3.rs-10898719/v1}{doi:10.21203/rs.3.rs-10898719/v1}
+    \item Souto, H. G., \& Diamantis, I. (2026). A Mathematical Framework for Topological Causal Data Analysis. \textit{arXiv}. \href{https://doi.org/10.48550/arXiv.2607.28161}{arXiv:2607.28161}
+    \ifshortcv\else
+    \item Souto, H. G., \& Louzada Neto, F. (2025). Forests for Differences: Robust Causal Inference Beyond Parametric DiD. \textit{arXiv}. \href{https://doi.org/10.48550/arXiv.2505.09706}{arXiv:2505.09706}
+    \item Souto, H. G., \& Louzada Neto, F. (2024). Beyond Arbitrary Replications: A Principled Approach to Simulation Design in Causal Inference. \textit{arXiv}. \href{https://doi.org/10.48550/arXiv.2409.05161}{arXiv:2409.05161}
+    \fi
+\end{itemize}
+
+% ==================== CONFERENCES & INVITED TALKS ====================
+\section{\ifshortcv Selected Conferences \& Invited Talks\else Conferences \& Invited Talks\fi}
+\begin{itemize}
+    \item \cvitem{Causal Data Science Meeting 2026 (CDSM 2026), Online}{04 Nov 2026}
+    \textit{Wasserstein Causal Forests for Distribution-Valued Outcomes}.
+    \item \cvitem{UC Davis Institute for Global Nutrition (Guest Lecture), Online}{28 Oct 2026}
+    \textit{The Current Use of Agentic AI to Both Accelerate and Improve Academic Research}.
+    \item \cvitem{ENIAC 2026 (36th Brazilian Conference on Intelligent Systems), Cuiab\'a, Brazil}{19--22 Oct 2026}
+    \textit{The Importance of Ablation Studies for Complex Nonparametric Causal Models}.
+    \item \cvitem{Universidade Presbiteriana Mackenzie --- Alphaville (Guest Lecture), Online}{16 Oct 2026}
+    \textit{Bayesian Causal Forests for Zero-Inflated Continuous Outcomes} (Semana de Tecnologia).
+    \ifshortcv\else
+    \item \cvitem{UFSCar --- Undergraduate Programme in Statistics (Invited Seminar), Brazil}{25 Jun 2026}
+    Seminar in the Introduction to Statistics and Data Science course.
+    \item \cvitem{XI Workshop on Probabilistic and Statistical Methods (WPSM 2026), UFSCar, Brazil}{25 Feb 2026}
+    \textit{On the Applications of Nonparametric Bayesian Methods in Heterogeneous Treatment Effect Estimation}.
+    \item \cvitem{WECDAF, UFBA (Invited Talk), Brazil}{Dec 2025}
+    \textit{Gerando conhecimento na \'area financeira com dados e estat\'istica}.
+    \item \cvitem{Causal Data Science Meeting 2025 (CDSM25), Online}{12 Nov 2025}
+    \textit{Forests for Differences: Robust Causal Inference Beyond Parametric DiD}.
+    \item \cvitem{EUROCIM 2025, Ghent University, Belgium}{10 Apr 2025}
+    \textit{Revisiting Model Evaluation in Treatment Effect Estimation: A Critical Appraisal}.
+    \item \cvitem{SoFiE 2024, PUC-Rio, Brazil}{14 Jun 2024}
+    \textit{Topological Tail Dependence: Evidence from Forecasting Realized Volatility}.
+    \item \cvitem{CIICE, University of Barcelona, Spain}{02 Nov 2023}
+    \textit{To What Extent Does ESG Impact Profitability Within the Airline Industry}.
+    \item \cvitem{ESOBE 2023, University of Glasgow, Scotland}{31 Aug 2023}
+    \textit{Application of Persistent Homology in Forecasting Realized Volatility}.
+    \item \cvitem{16th International Risk Management Conference, University of Florence, Italy}{07 Jul 2023}
+    \textit{NBEATSx Is All You Need for Realized Volatility Forecasting}.
+    \item \cvitem{25th Dynamic Econometrics Conference, Bayes Business School, London, UK}{13 Apr 2023}
+    \textit{Realized Volatility Predictability through Neural Networks and Financial Turbulence}.
+    \fi
+\end{itemize}
+
+% ==================== AWARDS AND HONORS ====================
+\section{Awards \& Honors}
+\begin{itemize}
+    \item \cvitem{FAPESP Master's Scholarship (2024/06274-0), Brazil}{Jul 2024}
+    \item \cvitem{CAPES Master's Scholarship (88887.949149/2024-00), Brazil}{May 2024}
+    \item \cvitem{HAN Prize Best Bachelor Thesis of the Year \& HAN Prijs Student of the Year 2023}{Jun--Jul 2023}
+    \ifshortcv\else
+    \item \cvitem{Distinguished Nomination for ECHO Award 2023}{Jun 2023}
+    \item \cvitem{HAN Excellence Scholarship \& Holland Scholarship Program, The Netherlands}{Oct 2019}
+    \fi
+\end{itemize}
+
+\ifshortcv\else
+% ==================== SOCIAL WORK ====================
+\section{Social Work}
+\begin{itemize}
+    \item \cvitem{Community Worker --- Emmaus Church, Dieren, The Netherlands}{Jan 2020 -- Feb 2024}
+    Participated in social projects supporting financial and social reintegration, assistance for the elderly, and community-bonding events.
+\end{itemize}
+\fi
+
+% ==================== LANGUAGES & SKILLS ====================
+\section{Languages \& Technical Skills}
+\textbf{Languages:} Portuguese (Native, C2), English (C2), French (C2), Dutch (C2), Spanish (B2).\\
+\textbf{Technical:} Python, R, PyTorch, TensorFlow, SQL, \LaTeX, MATLAB (Advanced); C++, SAP (Intermediate).
+
+\end{document}
